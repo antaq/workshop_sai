@@ -174,10 +174,11 @@
       dotsContainer.appendChild(dot);
     }
 
-    // Close presentation: returns to root index, or closes tab if opened from there
+    // Close presentation: tries to close the tab; if the browser refuses
+    // (window.close() fails silently), falls back to the root index.
     function closePresentation() {
-      if (window.opener) { window.close(); }
-      else { window.location.href = '../index.html'; }
+      window.close();
+      setTimeout(() => { window.location.href = '../index.html'; }, 150);
     }
 
     // Fullscreen
