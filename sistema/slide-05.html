@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perfis de Acesso</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            padding: 10px 80px 20px 80px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .profile-card {
+            background-color: #F8FAFC;
+            border-radius: 16px;
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 8px solid;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07);
+            transition: transform 0.2s ease;
+        }
+        .profile-card:hover { transform: translateY(-6px); }
+
+        .profile-icon {
+            width: 86px;
+            height: 86px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .profile-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            margin: 0 0 10px 0;
+            color: #003366;
+        }
+
+        .profile-card p {
+            color: #64748B;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Role colors */
+        .role-outorga { border-color: #003366; }
+        .role-outorga .profile-icon { background-color: #003366; }
+        .role-regulado { border-color: #0284C7; }
+        .role-regulado .profile-icon { background-color: #0284C7; }
+        .role-ap { border-color: #0F766E; }
+        .role-ap .profile-icon { background-color: #0F766E; }
+        .role-fiscal { border-color: #334155; }
+        .role-fiscal .profile-icon { background-color: #334155; }
+        .role-admin { border-color: #B45309; }
+        .role-admin .profile-icon { background-color: #B45309; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Perfis de Acesso</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Cada perfil enxerga e opera apenas a sua etapa do fluxo</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-user-shield text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PERFIS</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="profiles-grid">
+<div class="profile-card role-outorga">
+<div class="profile-icon"><i class="fas fa-file-signature"></i></div>
+<h3>Outorga</h3>
+<p>Cadastra e complementa os <strong>contratos de arrendamento</strong>, incluindo índices de correção monetária e dados exclusivos do SAI.</p>
+</div>
+<div class="profile-card role-regulado">
+<div class="profile-icon"><i class="fas fa-ship"></i></div>
+<h3>Regulado</h3>
+<p>Arrendatária responsável por <strong>preencher e enviar o RAPIR</strong> com os dados financeiros e físicos do investimento.</p>
+</div>
+<div class="profile-card role-ap">
+<div class="profile-icon"><i class="fas fa-anchor"></i></div>
+<h3>Autoridade Portuária</h3>
+<p><strong>Analisa e aprova</strong> os acompanhamentos enviados pelos regulados, adicionando observações e anexos, antes de remeter à fiscalização.</p>
+</div>
+<div class="profile-card role-fiscal">
+<div class="profile-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+<h3>Fiscal</h3>
+<p>Equipe da ANTAQ que faz a <strong>análise final</strong>: aprova, recusa com justificativa e conclui o processo de acompanhamento.</p>
+</div>
+<div class="profile-card role-admin">
+<div class="profile-icon"><i class="fas fa-user-gear"></i></div>
+<h3>Administrador</h3>
+<p><strong>Gerencia usuários e permissões</strong>, vincula contratos aos perfis e mantém as configurações do sistema.</p>
+</div>
+<!-- Info auxiliar -->
+<div class="profile-card" style="border-color: #E2E8F0; background-color: #F0F9FF;">
+<div class="profile-icon" style="background-color: #E0F2FE; color: #0066CC;"><i class="fas fa-circle-info"></i></div>
+<h3 style="color:#0066CC;">Como funciona?</h3>
+<p>Um mesmo usuário pode acumular papéis. O acesso é sempre <strong>restrito aos contratos vinculados</strong> ao seu perfil.</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">5 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

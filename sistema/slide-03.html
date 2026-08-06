@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Evolução do RAPIR</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+
+        /* Layout específico para comparação */
+        .comparison-container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .side-panel {
+            flex: 1;
+            padding: 20px 60px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .side-left {
+            background-color: #F8FAFC;
+            border-right: 1px dashed #CBD5E1;
+        }
+
+        .side-right {
+            background-color: #F0F9FF;
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-circle-left {
+            background-color: #FFE4E6;
+            color: #BE123C;
+        }
+
+        .icon-circle-right {
+            background-color: #DBEAFE;
+            color: #0066CC;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 14px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .list-icon {
+            margin-right: 16px;
+            margin-top: 4px;
+            font-size: 18px;
+        }
+
+        /* Central VS Badge */
+        .vs-badge {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            z-index: 20;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">A Evolução do RAPIR</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Transformação digital no acompanhamento dos investimentos</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-clock-rotate-left text-xl" aria-hidden="true"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">HISTÓRICO</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Comparison -->
+<div class="comparison-container">
+<!-- Center VS Badge -->
+<div class="vs-badge">VS</div>
+<!-- Left Side - ANTES -->
+<div class="side-panel side-left">
+<div class="flex flex-col items-center mb-4">
+<div class="icon-circle icon-circle-left">
+<i class="fas fa-file-pdf text-4xl"></i>
+</div>
+<h2 class="text-2xl font-montserrat font-bold text-gray-700 uppercase tracking-wide">ANTES</h2>
+<p class="text-gray-500 font-medium mt-1">Formulário Estático (PDF)</p>
+</div>
+<div class="flex-1">
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Processo Manual e Descentralizado</p>
+<p class="text-sm text-gray-500 mt-1">Cada arrendatária preenchia e enviava o relatório por conta própria.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Documentos Estáticos</p>
+<p class="text-sm text-gray-500 mt-1">Informações presas em PDFs, sem estrutura de dados.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Difícil Extração e Análise</p>
+<p class="text-sm text-gray-500 mt-1">Consolidar dados exigia digitação e conferência manual.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Baixa Rastreabilidade</p>
+<p class="text-sm text-gray-500 mt-1">Sem histórico claro de versões, alterações e responsáveis.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side - DEPOIS -->
+<div class="side-panel side-right">
+<div class="flex flex-col items-center mb-4">
+<div class="icon-circle icon-circle-right">
+<i class="fas fa-database text-4xl"></i>
+</div>
+<h2 class="text-2xl font-montserrat font-bold text-brand-secondary uppercase tracking-wide">DEPOIS</h2>
+<p class="text-brand-primary font-medium mt-1">SAI — Desenvolvido em Oracle APEX</p>
+</div>
+<div class="flex-1">
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Dados Estruturados e Centralizados</p>
+<p class="text-sm text-gray-600 mt-1">Base única com contratos e acompanhamentos acessível a todos os autorizados.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Integração em Tempo Real</p>
+<p class="text-sm text-gray-600 mt-1">Fluxo de envio, análise e aprovação com notificações automáticas.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Validações Automáticas</p>
+<p class="text-sm text-gray-600 mt-1">Campos obrigatórios e cálculos financeiros aplicados pelo sistema.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Auditoria Completa</p>
+<p class="text-sm text-gray-600 mt-1">Log detalhado de todas as alterações, com usuário, data e valores.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 bg-white flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">3 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

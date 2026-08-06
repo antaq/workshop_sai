@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Log das Alterações</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 70px 10px 70px;
+            gap: 20px;
+        }
+
+        .highlights {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #F8FAFC;
+            border-left: 5px solid #0066CC;
+            border-radius: 10px;
+            padding: 14px 20px;
+            font-size: 14px;
+            color: #475569;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .highlight i { color: #0066CC; font-size: 18px; }
+
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 16px 32px -10px rgba(0, 51, 102, 0.18);
+            font-size: 12.5px;
+        }
+        .log-table thead th {
+            background-color: #003366;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            text-align: left;
+            padding: 12px 16px;
+            white-space: nowrap;
+        }
+        .log-table tbody td {
+            padding: 11px 16px;
+            border-top: 1px solid #F1F5F9;
+            color: #475569;
+            white-space: nowrap;
+        }
+        .log-table tbody tr:nth-child(even) { background-color: #F8FAFC; }
+        .badge-old {
+            background-color: #FEE2E2;
+            color: #B91C1C;
+            font-weight: 700;
+            border-radius: 4px;
+            padding: 2px 8px;
+        }
+        .badge-new {
+            background-color: #DCFCE7;
+            color: #15803D;
+            font-weight: 700;
+            border-radius: 4px;
+            padding: 2px 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-2">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Log das Alterações</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Trilha de auditoria completa de todas as operações</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-clipboard-list text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">AUDITORIA</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<div class="highlights">
+<div class="highlight"><i class="fas fa-user-check"></i><span><strong>Quem</strong> alterou</span></div>
+<div class="highlight"><i class="far fa-clock"></i><span><strong>Quando</strong> alterou</span></div>
+<div class="highlight"><i class="fas fa-pen-to-square"></i><span><strong>Qual campo</strong> foi alterado</span></div>
+<div class="highlight"><i class="fas fa-right-left"></i><span><strong>Valor antigo</strong> e <strong>valor novo</strong></span></div>
+</div>
+<table class="log-table">
+<thead>
+<tr>
+<th>Nome da Tabela</th>
+<th>Usuário</th>
+<th>Requisição</th>
+<th>Data Hora</th>
+<th>Label Campo</th>
+<th>Valor Antigo</th>
+<th>Valor Novo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SAI_ACOMPANHAMENTO</td>
+<td>fiscal@antaq.gov.br</td>
+<td>ENVIAR_FS</td>
+<td>27/05/2025 17:49</td>
+<td>Status do Acompanhamento</td>
+<td><span class="badge-old">4</span></td>
+<td><span class="badge-new">6</span></td>
+</tr>
+<tr>
+<td>SAI_ACOMPANHAMENTO</td>
+<td>fiscal@antaq.gov.br</td>
+<td>ENVIAR_FS</td>
+<td>27/05/2025 17:49</td>
+<td>Deseja fazer mais alguma observação?</td>
+<td></td>
+<td><span class="badge-new">Obra conforme cronograma</span></td>
+</tr>
+<tr>
+<td>SAI_ACOMPANHAMENTO</td>
+<td>autoridade@porto.gov.br</td>
+<td>ENVIAR_AP</td>
+<td>27/05/2025 16:03</td>
+<td>Status do Acompanhamento</td>
+<td><span class="badge-old">2</span></td>
+<td><span class="badge-new">4</span></td>
+</tr>
+<tr>
+<td>SAI_ACOMPANHAMENTO</td>
+<td>representante@empresa.com.br</td>
+<td>ENVIAR_AP</td>
+<td>26/05/2025 17:16</td>
+<td>Possui REIDI?</td>
+<td></td>
+<td><span class="badge-new">Não</span></td>
+</tr>
+<tr>
+<td>SAI_ACOMPANHAMENTO</td>
+<td>representante@empresa.com.br</td>
+<td>ENVIAR_AP</td>
+<td>26/05/2025 17:16</td>
+<td>Parecer Contábil</td>
+<td></td>
+<td><span class="badge-new">parecer.pdf</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">17 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

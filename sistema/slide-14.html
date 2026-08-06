@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Painel Financeiro</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .dash-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 70px;
+            gap: 14px;
+        }
+
+        /* KPI row */
+        .kpi-row { display: flex; gap: 16px; }
+        .kpi-card {
+            flex: 1;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 6px 14px -6px rgba(0, 51, 102, 0.18);
+            border-top: 5px solid #0066CC;
+        }
+        .kpi-card .kpi-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #64748B;
+        }
+        .kpi-card .kpi-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #003366;
+            line-height: 1.2;
+        }
+        .kpi-card .kpi-sub { font-size: 10.5px; color: #94A3B8; }
+
+        /* Charts row */
+        .charts-row { display: flex; gap: 16px; }
+        .chart-card {
+            flex: 1;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px 16px;
+            box-shadow: 0 6px 14px -6px rgba(0, 51, 102, 0.15);
+        }
+        .chart-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 8px;
+        }
+        .bars { display: flex; align-items: flex-end; gap: 10px; height: 110px; padding: 0 6px; }
+        .bar { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, #0284C7, #003366); }
+        .bar-labels { display: flex; gap: 10px; padding: 4px 6px 0 6px; }
+        .bar-labels span { flex: 1; text-align: center; font-size: 9px; color: #94A3B8; }
+
+        .map-box {
+            background: linear-gradient(135deg, #DBEAFE 0%, #E0F7F4 55%, #DBEAFE 100%);
+            border-radius: 8px;
+            height: 128px;
+            position: relative;
+            overflow: hidden;
+        }
+        .map-box .pin { position: absolute; font-size: 15px; }
+        .map-box .grid-line-h { position: absolute; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.7); }
+        .map-box .grid-line-v { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.7); }
+
+        /* Feature chips */
+        .features-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .feature-chip {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            background-color: #F8FAFC;
+            border-left: 5px solid #0066CC;
+            border-radius: 9px;
+            padding: 9px 16px;
+            font-size: 12.5px;
+            color: #475569;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .feature-chip i { color: #0066CC; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-8 pb-2">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Painel Financeiro</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Visão gerencial de toda a carteira de investimentos, em tempo real</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-chart-pie text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PAINEL</p>
+</div>
+</div>
+</div>
+<!-- Dashboard mock -->
+<div class="dash-wrapper">
+<div class="kpi-row">
+<div class="kpi-card">
+<p class="kpi-label">Investimento Global</p>
+<p class="kpi-value">R$ 8,4 Bi</p>
+<p class="kpi-sub">corrigido para a data selecionada</p>
+</div>
+<div class="kpi-card" style="border-top-color:#16A34A;">
+<p class="kpi-label">Investimento Executado</p>
+<p class="kpi-value">R$ 3,2 Bi</p>
+<p class="kpi-sub">com correção monetária automática</p>
+</div>
+<div class="kpi-card" style="border-top-color:#F59E0B;">
+<p class="kpi-label">Contratos na Carteira</p>
+<p class="kpi-value">70</p>
+<p class="kpi-sub">arrendamentos e TUPs monitorados</p>
+</div>
+<div class="kpi-card" style="border-top-color:#0F766E;">
+<p class="kpi-label">Execução Física Média</p>
+<p class="kpi-value">46%</p>
+<p class="kpi-sub">medições dos últimos RAPIRs</p>
+</div>
+</div>
+<div class="charts-row">
+<div class="chart-card">
+<p class="chart-title"><i class="fas fa-chart-line mr-1 text-brand-secondary"></i>Evolução dos Investimentos</p>
+<svg viewBox="0 0 300 110" style="width:100%; height:110px;">
+<polyline points="0,100 40,92 80,85 120,70 160,64 200,45 240,35 280,18" fill="none" stroke="#0284C7" stroke-width="3"/>
+<polyline points="0,105 40,99 80,94 120,84 160,80 200,68 240,62 280,50" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="280" cy="18" r="4" fill="#003366"/>
+</svg>
+<p class="text-gray-400" style="font-size:9.5px;">— Executado &nbsp;·&nbsp; ‑ ‑ Programado</p>
+</div>
+<div class="chart-card">
+<p class="chart-title"><i class="fas fa-chart-column mr-1 text-brand-secondary"></i>Investimento por Região</p>
+<div class="bars">
+<div class="bar" style="height:95%;"></div>
+<div class="bar" style="height:70%;"></div>
+<div class="bar" style="height:55%;"></div>
+<div class="bar" style="height:38%;"></div>
+<div class="bar" style="height:22%;"></div>
+</div>
+<div class="bar-labels"><span>Sudeste</span><span>Sul</span><span>Nordeste</span><span>Norte</span><span>C.-Oeste</span></div>
+</div>
+<div class="chart-card">
+<p class="chart-title"><i class="fas fa-map-location-dot mr-1 text-brand-secondary"></i>Mapa dos Portos</p>
+<div class="map-box">
+<div class="grid-line-h" style="top:33%;"></div>
+<div class="grid-line-h" style="top:66%;"></div>
+<div class="grid-line-v" style="left:33%;"></div>
+<div class="grid-line-v" style="left:66%;"></div>
+<i class="fas fa-location-dot pin" style="top:18%; left:64%; color:#16A34A;"></i>
+<i class="fas fa-location-dot pin" style="top:40%; left:72%; color:#F59E0B;"></i>
+<i class="fas fa-location-dot pin" style="top:60%; left:58%; color:#DC2626;"></i>
+<i class="fas fa-location-dot pin" style="top:72%; left:44%; color:#16A34A;"></i>
+<i class="fas fa-location-dot pin" style="top:32%; left:30%; color:#16A34A;"></i>
+</div>
+</div>
+</div>
+<div class="features-row">
+<div class="feature-chip"><i class="fas fa-hand-pointer"></i>KPIs clicáveis com <strong>&nbsp;filtro cruzado</strong></div>
+<div class="feature-chip"><i class="fas fa-filter"></i>Filtros por região, perfil de carga, REIDI e contrato</div>
+<div class="feature-chip"><i class="fas fa-calendar-check"></i>Correção monetária para <strong>&nbsp;qualquer data</strong></div>
+<div class="feature-chip"><i class="fas fa-table-list"></i>Carteira de contratos detalhada</div>
+<div class="feature-chip"><i class="fas fa-ranking-star"></i>Top empresas e execução física</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-5 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">14 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

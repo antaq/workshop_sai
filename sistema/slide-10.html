@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perfil Regulado - RAPIR</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 10px 60px 20px 60px;
+            gap: 50px;
+            align-items: center;
+        }
+        .info-column { flex: 0.42; }
+        .mockup-column { flex: 0.58; }
+
+        .tab-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+            background-color: #F8FAFC;
+            padding: 14px 20px;
+            border-radius: 10px;
+            border-left: 6px solid #0284C7;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .tab-number {
+            width: 40px; height: 40px;
+            background-color: #0284C7;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        .tab-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 16.5px;
+            margin: 0;
+            display: inline;
+        }
+        .tab-item p {
+            color: #64748B;
+            font-size: 13.5px;
+            margin: 2px 0 0 0;
+            line-height: 1.35;
+        }
+
+        /* Mockup dialog */
+        .mockup {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px -10px rgba(0, 51, 102, 0.25);
+            overflow: hidden;
+        }
+        .mockup-titlebar {
+            background-color: #F1F5F9;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E2E8F0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #334155;
+            font-size: 15px;
+        }
+        .mockup-tabs { display: flex; border-bottom: 1px solid #E2E8F0; }
+        .mockup-tab {
+            flex: 1;
+            text-align: center;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #64748B;
+            padding: 10px 0;
+            white-space: nowrap;
+        }
+        .mockup-tab.active {
+            color: #0066CC;
+            border-bottom: 3px solid #0066CC;
+            font-weight: 700;
+        }
+        .mockup-body { padding: 18px 24px; }
+        .mockup-field { margin-bottom: 12px; }
+        .mockup-label { font-size: 10.5px; font-weight: 700; color: #64748B; margin-bottom: 2px; }
+        .mockup-value { font-size: 13px; font-weight: 700; color: #1E293B; }
+        .mockup-textbox {
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 11.5px;
+            color: #475569;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Perfil Regulado</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">O preenchimento e a visualização do RAPIR</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-ship text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">REGULADO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left: Estrutura do cadastro -->
+<div class="info-column">
+<p class="font-montserrat font-bold text-brand-primary text-lg mb-3"><i class="fas fa-layer-group text-brand-secondary mr-2"></i>Estrutura do Cadastro</p>
+<div class="tab-item">
+<div class="tab-number">1</div>
+<div><h3>Geral</h3><p>Dados do relatório, período de referência, obras iniciadas?, REIDI utilizado e processo SEI.</p></div>
+</div>
+<div class="tab-item">
+<div class="tab-number">2</div>
+<div><h3>Financeiro</h3><p>Programado vs. Executado — total, no período e nas janelas de <strong>12/24/36 meses</strong> — com correção monetária automática pelo índice do contrato.</p></div>
+</div>
+<div class="tab-item">
+<div class="tab-number">3</div>
+<div><h3>Físico</h3><p><strong>% de execução física</strong>, avanço de obras, alterações do projeto original e investimentos atrasados ou não previstos.</p></div>
+</div>
+<div class="tab-item">
+<div class="tab-number">4</div>
+<div><h3>Observações</h3><p>Justificativas e comentários de cada perfil.</p></div>
+</div>
+<div class="tab-item">
+<div class="tab-number">5</div>
+<div><h3>Anexos</h3><p>Parecer contábil, responsabilidade técnica (ART), registro fotográfico, <strong>cronograma financeiro</strong> e anexo complementar.</p></div>
+</div>
+</div>
+<!-- Right: Mockup visualização -->
+<div class="mockup-column">
+<div class="mockup">
+<div class="mockup-titlebar">
+<span><i class="fas fa-file-invoice mr-2 text-brand-secondary"></i>Acompanhamento do Contrato</span>
+<i class="fas fa-xmark text-gray-400"></i>
+</div>
+<div class="mockup-tabs">
+<div class="mockup-tab active"><i class="fas fa-file-lines mr-1"></i> Geral</div>
+<div class="mockup-tab"><i class="fas fa-dollar-sign mr-1"></i> Financeiro</div>
+<div class="mockup-tab"><i class="fas fa-helmet-safety mr-1"></i> Físico</div>
+<div class="mockup-tab"><i class="far fa-comment-dots mr-1"></i> Observações</div>
+<div class="mockup-tab"><i class="fas fa-paperclip mr-1"></i> Anexos</div>
+</div>
+<div class="mockup-body">
+<div class="grid grid-cols-5 gap-3">
+<div class="mockup-field"><p class="mockup-label">Relatório nº</p><p class="mockup-value">00101</p></div>
+<div class="mockup-field"><p class="mockup-label">Data do Relatório</p><p class="mockup-value">09/2025</p></div>
+<div class="mockup-field"><p class="mockup-label">Período da Execução</p><p class="mockup-value">01/03/2025 a 30/09/2025</p></div>
+<div class="mockup-field"><p class="mockup-label">Início das Obras</p><p class="mockup-value">28/09/2018</p></div>
+<div class="mockup-field"><p class="mockup-label">Período de Referência</p><p class="mockup-value">01/09/2025 a 22/09/2025</p></div>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="mockup-field"><p class="mockup-label">Contrato</p><p class="mockup-value">012/2000</p></div>
+<div class="mockup-field"><p class="mockup-label">Versão</p><p class="mockup-value">4º Aditivo</p></div>
+<div class="mockup-field text-right"><p class="mockup-label">&nbsp;</p><p class="mockup-value text-brand-secondary"><i class="fas fa-arrow-up-right-from-square mr-1"></i>SEI</p></div>
+</div>
+<div class="mockup-field">
+<p class="mockup-label">Descrição do objeto</p>
+<div class="mockup-textbox">
+                                CLÁUSULA PRIMEIRA – DO OBJETO: Constitui objeto do presente TERMO ADITIVO a adequação da redação da cláusula Primeira e da Cláusula Sexta do Segundo Termo Aditivo ao Contrato de Arrendamento nº 012/2000...
+                            </div>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="mockup-field"><p class="mockup-label">Nome Fantasia Empresa</p><p class="mockup-value">TECON SALVADOR S.A.</p></div>
+<div class="mockup-field"><p class="mockup-label">CNPJ da empresa</p><p class="mockup-value">03.642.342/0001-01</p></div>
+<div class="mockup-field"><p class="mockup-label">Código Trigrama</p><p class="mockup-value">SSA</p></div>
+</div>
+</div>
+</div>
+<p class="text-gray-500 text-xs mt-3 text-center"><i class="fas fa-wand-magic-sparkles text-brand-secondary mr-1"></i>
+                    A visualização <strong>consolida o RAPIR com os dados do contrato</strong> e exibe os <strong>cálculos financeiros automáticos</strong>.</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">10 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

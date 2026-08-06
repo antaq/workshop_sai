@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestão de Acessos</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 10px 60px 20px 60px;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .steps-column { flex: 0.45; }
+        .mockup-column { flex: 0.55; }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 22px;
+            background-color: #F8FAFC;
+            padding: 20px 24px;
+            border-radius: 12px;
+            border-left: 6px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .step-number {
+            width: 44px;
+            height: 44px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .step-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 18px;
+            margin: 0 0 4px 0;
+        }
+        .step-item p {
+            color: #64748B;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Mockup dialog */
+        .mockup {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px -10px rgba(0, 51, 102, 0.25);
+            overflow: hidden;
+        }
+        .mockup-titlebar {
+            background-color: #F1F5F9;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E2E8F0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #334155;
+            font-size: 15px;
+        }
+        .mockup-body { padding: 20px 24px; }
+        .mockup-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748B;
+            margin-bottom: 4px;
+        }
+        .mockup-label .req { color: #DC2626; }
+        .mockup-input {
+            background-color: #F8FAFC;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 13px;
+            color: #334155;
+            margin-bottom: 14px;
+        }
+        .mockup-check {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #334155;
+            padding: 3px 0;
+        }
+        .mockup-check .box {
+            width: 15px; height: 15px;
+            border: 1.5px solid #94A3B8;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+        .mockup-check .box.checked {
+            background-color: #0066CC;
+            border-color: #0066CC;
+            color: white;
+        }
+        .mockup-shuttle {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+        .shuttle-list {
+            flex: 1;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            background: #F8FAFC;
+            font-size: 11.5px;
+            color: #475569;
+            padding: 6px 8px;
+            line-height: 1.7;
+        }
+        .shuttle-arrows {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            color: #94A3B8;
+            font-size: 12px;
+        }
+        .mockup-btn {
+            background-color: #0066CC;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Gestão de Acessos</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Configuração de usuários e permissões</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-users-gear text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ADMINISTRAÇÃO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left: Steps -->
+<div class="steps-column">
+<div class="step-item">
+<div class="step-number">1</div>
+<div>
+<h3>Vínculo realizado pelo CPF</h3>
+<p>O usuário é identificado pelo <strong>CPF da conta gov.br</strong> utilizada no login.</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-number">2</div>
+<div>
+<h3>Seleção do papel funcional</h3>
+<p>Administrador, Autoridade Portuária, Fiscal, Outorga ou Regulado — um ou mais papéis por usuário.</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-number">3</div>
+<div>
+<h3>Vínculo direto aos contratos</h3>
+<p>Define exatamente <strong>quais contratos</strong> o usuário terá permissão de acessar e movimentar.</p>
+</div>
+</div>
+</div>
+<!-- Right: Mockup -->
+<div class="mockup-column">
+<div class="mockup">
+<div class="mockup-titlebar">
+<span><i class="fas fa-user-lock mr-2 text-brand-secondary"></i>Gerenciar acesso do usuário</span>
+<i class="fas fa-xmark text-gray-400"></i>
+</div>
+<div class="mockup-body">
+<p class="mockup-label"><span class="req">*</span> CPF do usuário (conta gov.br)</p>
+<div class="mockup-input">000.000.000-00</div>
+<p class="mockup-label"><span class="req">*</span> Nível de acesso</p>
+<div class="mb-3">
+<div class="mockup-check"><span class="box"></span> Administrador</div>
+<div class="mockup-check"><span class="box"></span> Autoridade Portuária</div>
+<div class="mockup-check"><span class="box"></span> Fiscal</div>
+<div class="mockup-check"><span class="box"></span> Outorga</div>
+<div class="mockup-check"><span class="box checked"><i class="fas fa-check"></i></span> <strong>Regulado</strong></div>
+</div>
+<p class="mockup-label">Contratos</p>
+<div class="mockup-shuttle">
+<div class="shuttle-list">
+                                    ADONAI EAST TERMINAL S.A. 03/2020 (1º Aditivo)<br/>
+                                    AGEMAR LOCAÇÃO LTDA. 2023/038/00 (Original)<br/>
+                                    ATU 12 ARRENDATÁRIA SPE S.A. 02/2021 (1º Aditivo)<br/>
+                                    BRACELL SP CELULOSE LTDA. 05/2020 (Original)
+                                </div>
+<div class="shuttle-arrows">
+<i class="fas fa-angles-right"></i>
+<i class="fas fa-angle-right"></i>
+<i class="fas fa-angle-left"></i>
+<i class="fas fa-angles-left"></i>
+</div>
+<div class="shuttle-list" style="background:#EFF6FF; border-color:#93C5FD;">
+                                    TECON SALVADOR S.A. 012/2000 (4º Aditivo)
+                                </div>
+</div>
+<div class="flex justify-end mt-4">
+<span class="mockup-btn">Salvar alterações</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">6 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

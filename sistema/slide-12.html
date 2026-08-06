@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fluxo de Decisão - Aprovar ou Recusar</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 14px 70px 10px 70px;
+            gap: 40px;
+            align-items: center;
+        }
+        .decision-card {
+            flex: 1;
+            border-radius: 14px;
+            padding: 26px 30px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+        }
+        .card-recusar {
+            background-color: #FEF2F2;
+            border: 2px solid #FECACA;
+        }
+        .card-aprovar {
+            background-color: #F0FDF4;
+            border: 2px solid #BBF7D0;
+        }
+        .decision-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .decision-icon {
+            width: 54px; height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+            flex-shrink: 0;
+        }
+        .card-recusar .decision-icon { background-color: #DC2626; }
+        .card-aprovar .decision-icon { background-color: #16A34A; }
+        .decision-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 23px;
+            margin: 0;
+        }
+        .card-recusar h2 { color: #B91C1C; }
+        .card-aprovar h2 { color: #15803D; }
+
+        .decision-list { margin-bottom: 6px; }
+        .decision-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14.5px;
+            color: #374151;
+            line-height: 1.45;
+            margin-bottom: 12px;
+        }
+        .decision-list i { margin-top: 3px; }
+
+        /* Mini editor mockup */
+        .mini-editor {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .mini-editor .toolbar {
+            display: flex;
+            gap: 12px;
+            padding: 7px 12px;
+            border-bottom: 1px solid #E2E8F0;
+            color: #94A3B8;
+            font-size: 11px;
+            align-items: center;
+        }
+        .mini-editor .area {
+            padding: 12px;
+            font-size: 12px;
+            color: #94A3B8;
+            min-height: 56px;
+        }
+        .mini-btn {
+            align-self: flex-end;
+            margin-top: 12px;
+            color: white;
+            font-size: 12.5px;
+            font-weight: 700;
+            border-radius: 6px;
+            padding: 8px 18px;
+        }
+        .btn-recusar { background-color: #DC2626; }
+        .btn-aprovar { background-color: #16A34A; }
+
+        .dropzone {
+            border: 2px dashed #86EFAC;
+            border-radius: 8px;
+            text-align: center;
+            padding: 12px;
+            color: #64748B;
+            font-size: 12px;
+            margin-top: 8px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-2">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Fluxo de Decisão: Aprovar ou Recusar</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Mesma mecânica para Autoridade Portuária e Fiscalização</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-scale-balanced text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">DECISÃO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Recusar -->
+<div class="decision-card card-recusar">
+<div class="decision-header">
+<div class="decision-icon"><i class="fas fa-xmark"></i></div>
+<h2>Recusar Acompanhamento</h2>
+</div>
+<ul class="decision-list list-none p-0 m-0">
+<li><i class="fas fa-pen text-red-500"></i><span>O motivo da recusa é <strong>obrigatório</strong> e registrado em editor de texto rico.</span></li>
+<li><i class="fas fa-rotate-left text-red-500"></i><span>O acompanhamento <strong>retorna à etapa anterior</strong> para correção.</span></li>
+<li><i class="fas fa-bell text-red-500"></i><span>O responsável é <strong>notificado por e-mail</strong> para correção imediata.</span></li>
+</ul>
+<div class="mini-editor">
+<div class="toolbar"><span>Parágrafo</span><i class="fas fa-bold"></i><i class="fas fa-italic"></i><i class="fas fa-code"></i><i class="fas fa-link"></i><i class="fas fa-list"></i><i class="fas fa-quote-left"></i></div>
+<div class="area">Qual o motivo da recusa?</div>
+</div>
+<span class="mini-btn btn-recusar"><i class="fas fa-xmark mr-1"></i> Recusar</span>
+</div>
+<!-- Aprovar -->
+<div class="decision-card card-aprovar">
+<div class="decision-header">
+<div class="decision-icon"><i class="fas fa-check"></i></div>
+<h2>Aprovar e Enviar</h2>
+</div>
+<ul class="decision-list list-none p-0 m-0">
+<li><i class="fas fa-comment-dots text-green-600"></i><span>É possível <strong>adicionar observações</strong> antes de avançar a etapa.</span></li>
+<li><i class="fas fa-paperclip text-green-600"></i><span>Também é possível <strong>anexar arquivos</strong> complementares.</span></li>
+<li><i class="fas fa-forward text-green-600"></i><span>Autoridade Portuária envia à <strong>Fiscalização</strong>; a Fiscalização <strong>salva e finaliza</strong> o processo.</span></li>
+</ul>
+<div class="mini-editor">
+<div class="toolbar"><span>Parágrafo</span><i class="fas fa-bold"></i><i class="fas fa-italic"></i><i class="fas fa-code"></i><i class="fas fa-link"></i><i class="fas fa-list"></i><i class="fas fa-quote-left"></i></div>
+<div class="area">Deseja fazer mais alguma observação?</div>
+</div>
+<div class="dropzone"><i class="fas fa-cloud-arrow-up mr-1"></i> Arrastar e Soltar Arquivos — <span class="text-brand-secondary font-bold">Escolher Arquivos</span></div>
+<span class="mini-btn btn-aprovar"><i class="fas fa-paper-plane mr-1"></i> Aprovar e Enviar</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">12 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

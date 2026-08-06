@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notificações por E-mail</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 10px 70px 20px 70px;
+            gap: 60px;
+            align-items: center;
+        }
+        .info-column { flex: 0.48; }
+        .mockup-column { flex: 0.52; }
+
+        .trigger-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #F8FAFC;
+            padding: 18px 24px;
+            border-radius: 12px;
+            border-left: 6px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .trigger-icon {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .trigger-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 18px;
+            margin: 0 0 3px 0;
+        }
+        .trigger-item p {
+            color: #64748B;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Email mockup */
+        .email-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px -10px rgba(0, 51, 102, 0.25);
+            overflow: hidden;
+        }
+        .email-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .email-head img { height: 60px; }
+        .email-btn {
+            background-color: #003366;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 10px 18px;
+            border-radius: 6px;
+        }
+        .email-body { padding: 20px 24px; font-size: 13.5px; color: #475569; line-height: 1.9; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Comunicação Automática</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Notificações por e-mail em cada etapa do fluxo</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-envelope-open-text text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">NOTIFICAÇÕES</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left: Triggers -->
+<div class="info-column">
+<p class="font-montserrat font-bold text-brand-primary text-lg mb-4"><i class="fas fa-bolt text-brand-secondary mr-2"></i>Gatilhos de Notificação</p>
+<div class="trigger-item">
+<div class="trigger-icon" style="background-color:#0284C7;"><i class="fas fa-inbox"></i></div>
+<div>
+<h3>No Cadastro</h3>
+<p>Aviso de recebimento de novo RAPIR.</p>
+</div>
+</div>
+<div class="trigger-item">
+<div class="trigger-icon" style="background-color:#16A34A;"><i class="fas fa-thumbs-up"></i></div>
+<div>
+<h3>Na Aprovação</h3>
+<p>Confirmação de avanço de etapa.</p>
+</div>
+</div>
+<div class="trigger-item">
+<div class="trigger-icon" style="background-color:#DC2626;"><i class="fas fa-triangle-exclamation"></i></div>
+<div>
+<h3>Na Recusa</h3>
+<p>Alerta para correção imediata, com o motivo registrado.</p>
+</div>
+</div>
+<div class="trigger-item">
+<div class="trigger-icon" style="background-color:#334155;"><i class="fas fa-flag-checkered"></i></div>
+<div>
+<h3>Na Conclusão</h3>
+<p>Finalização do processo de acompanhamento.</p>
+</div>
+</div>
+</div>
+<!-- Right: Email mockup -->
+<div class="mockup-column">
+<div class="email-card">
+<div class="email-head">
+<div class="flex items-center gap-4">
+<img src="../icon_sai.png" alt="SAI"/>
+<div>
+<p class="font-montserrat font-bold text-brand-primary text-lg leading-tight m-0">SAI</p>
+<p class="text-gray-500 text-xs m-0">Sistema de Acompanhamento de Investimentos</p>
+</div>
+</div>
+<span class="email-btn">Acesse o SAI</span>
+</div>
+<div class="email-body">
+                        Um novo acompanhamento foi <strong>enviado</strong> à Autoridade Portuária:<br/>
+                        Representante: <strong>representante@empresa.com.br</strong><br/>
+                        Nome: <strong>TECON RIO GRANDE S.A. — Contrato CA-SUPRG 01/97 — Versão: 1º Aditivo [Arrendamento] — 5/2025</strong><br/>
+                        Acompanhamento: <strong>Relatório 00041 (05/2025)</strong><br/>
+                        Observações: <strong>—</strong>
+                    </div>
+</div>
+<p class="text-gray-500 text-xs mt-3 text-center"><i class="fas fa-eye text-brand-secondary mr-1"></i>
+                    No sistema, os botões <strong>Anotações</strong> e <strong>Motivo da Recusa</strong> exibem o histórico de observações de cada perfil.</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">16 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

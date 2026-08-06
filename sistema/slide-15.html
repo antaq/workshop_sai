@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IPT - Índice de Performance para Término</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 8px 60px 14px 60px;
+            gap: 40px;
+            align-items: center;
+        }
+        .concept-column { flex: 0.40; display: flex; flex-direction: column; gap: 16px; }
+        .table-column { flex: 0.60; }
+
+        .concept-box {
+            background-color: #003366;
+            color: white;
+            padding: 26px 30px;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+        .concept-box h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 34px;
+            margin: 0 0 4px 0;
+        }
+        .concept-box .sub {
+            color: #BFDBFE;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11.5px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .concept-box p { font-size: 14.5px; line-height: 1.55; opacity: 0.95; margin: 0; }
+
+        /* Formula card */
+        .formula-card {
+            background-color: #F0F9FF;
+            border: 2px solid #BAE6FD;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 6px 14px -6px rgba(0, 102, 204, 0.2);
+        }
+        .formula-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #0066CC;
+            margin-bottom: 8px;
+        }
+        .formula {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            font-family: 'Montserrat', sans-serif;
+            color: #003366;
+        }
+        .formula .lhs { font-size: 24px; font-weight: 800; }
+        .formula .frac { display: inline-flex; flex-direction: column; align-items: center; }
+        .formula .frac .num { font-size: 15px; font-weight: 700; padding: 2px 12px; }
+        .formula .frac .den { font-size: 15px; font-weight: 700; padding: 2px 12px; border-top: 2.5px solid #003366; }
+        .formula .eq { font-size: 24px; font-weight: 800; }
+        .formula-params { font-size: 11.5px; color: #475569; line-height: 1.55; margin-top: 10px; }
+        .formula-params strong { color: #003366; }
+
+        .extra-card {
+            background-color: #F8FAFC;
+            border-left: 6px solid #0066CC;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            font-size: 12.5px;
+            color: #475569;
+            line-height: 1.5;
+        }
+        .extra-card strong { color: #003366; }
+
+        /* Interpretation table */
+        .ipt-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 16px 32px -10px rgba(0, 51, 102, 0.18);
+            font-size: 13px;
+        }
+        .ipt-table thead th {
+            background-color: #003366;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 12.5px;
+            text-align: left;
+            padding: 11px 16px;
+        }
+        .ipt-table tbody td {
+            padding: 11px 16px;
+            border-top: 1px solid #F1F5F9;
+            color: #475569;
+            vertical-align: middle;
+        }
+        .ipt-faixa { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #003366; white-space: nowrap; }
+        .badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .badge-ok { background: #DCFCE7; color: #166534; }
+        .badge-alerta { background: #FEF3C7; color: #92400E; }
+        .badge-critico { background: #FEE2E2; color: #991B1B; }
+
+        .curva-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px 18px;
+            box-shadow: 0 6px 14px -6px rgba(0, 51, 102, 0.15);
+            margin-top: 14px;
+        }
+        .curva-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-8 pb-2">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">IPT — Índice de Performance para Término</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">O termômetro de prazo de cada contrato, calculado automaticamente no Painel</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-gauge-high text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">IPT</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left: Concept -->
+<div class="concept-column">
+<div class="concept-box">
+<h2>O que é?</h2>
+<p class="sub">Indicador de ritmo da obra</p>
+<p>O IPT mede o <strong>esforço necessário daqui para frente</strong> para concluir a obra no prazo, comparando o quanto <em>falta executar</em> com o quanto <em>resta de prazo</em>.
+                    Quanto maior o IPT, mais o ritmo precisa acelerar — e menor a chance de entregar no prazo.</p>
+</div>
+<div class="formula-card">
+<p class="formula-title"><i class="fas fa-square-root-variable mr-1"></i>Como é calculado</p>
+<div class="formula">
+<span class="lhs">IPT</span>
+<span class="eq">=</span>
+<span class="frac">
+<span class="num">100% − Realizado (%)</span>
+<span class="den">100% − Esperado (%)</span>
+</span>
+</div>
+<p class="formula-params">
+<strong>Realizado (%):</strong> execução física informada no último RAPIR aprovado.<br/>
+<strong>Esperado (%):</strong> avanço previsto para hoje pela curva típica de obras portuárias (Curva S), conforme o % do prazo decorrido entre o <strong>início da contagem</strong> e a <strong>conclusão da obrigação</strong> cadastrados na Execução.<br/>
+<strong>Probabilidade (%):</strong> chance estimada de concluir no prazo mantendo o ritmo atual, derivada do IPT.
+                    </p>
+</div>
+<div class="extra-card">
+<i class="fas fa-triangle-exclamation text-red-500 mr-1"></i> Prazo vencido com obra não concluída → classificado automaticamente como <strong>Crítico</strong>. Sem medição física → <strong>Sem medição</strong>.
+                </div>
+</div>
+<!-- Right: Interpretation table + curva S -->
+<div class="table-column">
+<table class="ipt-table">
+<thead>
+<tr><th>Faixa de IPT</th><th>Situação</th><th>O que significa / o que fazer</th></tr>
+</thead>
+<tbody>
+<tr>
+<td class="ipt-faixa">≤ 1,0</td>
+<td><span class="badge badge-ok">Em dia</span></td>
+<td>No ritmo planejado ou adiantado. Acompanhamento de rotina.</td>
+</tr>
+<tr>
+<td class="ipt-faixa">1,1 – 1,3</td>
+<td><span class="badge badge-alerta">Alerta</span></td>
+<td>Precisa acelerar levemente. Atenção ao próximo relatório.</td>
+</tr>
+<tr>
+<td class="ipt-faixa">1,4 – 2,0</td>
+<td><span class="badge badge-alerta">Alerta</span></td>
+<td>Risco. Requer mobilização extra de equipe e recursos para recuperar.</td>
+</tr>
+<tr>
+<td class="ipt-faixa">&gt; 2,0</td>
+<td><span class="badge badge-critico">Crítico</span></td>
+<td>Recuperação inviável sem repactuar o prazo. Priorizar fiscalização.</td>
+</tr>
+</tbody>
+</table>
+<div class="curva-card">
+<p class="curva-title"><i class="fas fa-chart-line mr-1 text-brand-secondary"></i>Curva de Execução — Realizado vs Esperado (por contrato)</p>
+<svg viewBox="0 0 640 130" style="width:100%; height:120px;">
+<line x1="0" y1="120" x2="640" y2="120" stroke="#E2E8F0" stroke-width="1"/>
+<line x1="0" y1="80" x2="640" y2="80" stroke="#F1F5F9" stroke-width="1"/>
+<line x1="0" y1="40" x2="640" y2="40" stroke="#F1F5F9" stroke-width="1"/>
+<path d="M0,118 C160,112 280,85 400,55 C500,32 580,15 640,8" fill="none" stroke="#94A3B8" stroke-width="2.5" stroke-dasharray="7 5"/>
+<path d="M0,119 C150,116 260,100 380,82 C480,68 560,60 640,52" fill="none" stroke="#0284C7" stroke-width="3.5"/>
+<circle cx="640" cy="52" r="5" fill="#003366"/>
+<text x="500" y="30" font-size="12" fill="#94A3B8">Esperado</text>
+<text x="520" y="75" font-size="12" fill="#0284C7" font-weight="bold">Realizado</text>
+</svg>
+<p class="text-gray-400" style="font-size:10px;">Painel Financeiro · aba IPT: ranking de contratos, histograma de distribuição e Curva S por contrato</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-5 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">15 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

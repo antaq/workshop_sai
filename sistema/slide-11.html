@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fluxo - Regulado e Autoridade Portuária</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .role-band {
+            display: flex;
+            margin: 10px 80px 0 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 17px;
+        }
+        .role-band > div { padding: 12px 0; text-align: center; }
+        .band-regulado { background-color: #0284C7; width: 42%; }
+        .band-ap { background-color: #0F766E; width: 58%; }
+
+        .flow-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 80px;
+            gap: 18px;
+        }
+        .flow-box {
+            position: relative;
+            border-radius: 10px;
+            padding: 22px 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15.5px;
+            text-align: center;
+            color: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.18);
+            line-height: 1.35;
+        }
+        .box-regulado { background-color: #0284C7; }
+        .box-ap { background-color: #0F766E; }
+        .flow-arrow { color: #94A3B8; font-size: 24px; flex-shrink: 0; }
+        .cond {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            text-align: center;
+        }
+        .cond-sim { color: #16A34A; }
+        .cond-nao { color: #DC2626; }
+        .bell {
+            position: absolute;
+            right: -12px;
+            bottom: -12px;
+            width: 34px; height: 34px;
+            background-color: #FFD700;
+            color: #003366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border: 3px solid white;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        .fork { display: flex; flex-direction: column; gap: 26px; }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding-bottom: 8px;
+            font-size: 13px;
+            color: #64748B;
+        }
+        .legend span { display: flex; align-items: center; gap: 8px; }
+        .legend .bell-mini {
+            width: 22px; height: 22px;
+            background-color: #FFD700;
+            color: #003366;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-2">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Fluxo: Regulado e Autoridade Portuária</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Análise do acompanhamento enviado pela arrendatária</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-diagram-project text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">FLUXO 2/3</p>
+</div>
+</div>
+</div>
+<!-- Role band -->
+<div class="role-band">
+<div class="band-regulado">Regulado</div>
+<div class="band-ap">Autoridade Portuária</div>
+</div>
+<!-- Flow -->
+<div class="flow-area">
+<div class="flow-box box-regulado">Preencher<br/>Campos</div>
+<i class="fas fa-arrow-right flow-arrow"></i>
+<div class="flow-box box-regulado">Salvar ou<br/><span style="color:#FFD700;">Enviar</span><span class="bell"><i class="fas fa-bell"></i></span></div>
+<i class="fas fa-arrow-right flow-arrow"></i>
+<div class="fork">
+<div class="flow-box box-regulado">Editar<br/>Acompanhamento</div>
+<div class="flow-box box-ap">Aprovar?<span class="bell"><i class="fas fa-bell"></i></span></div>
+</div>
+<div class="flex flex-col items-center gap-1">
+<p class="cond cond-sim">Sim <i class="fas fa-arrow-right"></i></p>
+<p class="cond cond-nao"><i class="fas fa-rotate-left"></i> Não: retorna<br/>ao Regulado</p>
+</div>
+<div class="flow-box box-ap">Adiciona<br/>Observações</div>
+<i class="fas fa-arrow-right flow-arrow"></i>
+<div class="flow-box box-ap">Enviar para<br/>Fiscalização<span class="bell"><i class="fas fa-bell"></i></span></div>
+</div>
+<!-- Legend -->
+<div class="legend">
+<span><span class="bell-mini"><i class="fas fa-bell"></i></span> Notificação automática por e-mail</span>
+<span><i class="fas fa-paperclip text-brand-secondary"></i> A Autoridade Portuária pode adicionar observações e anexos ao aprovar</span>
+<span><i class="fas fa-rotate-left" style="color:#DC2626;"></i> Recusa exige justificativa e devolve para correção</span>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">11 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

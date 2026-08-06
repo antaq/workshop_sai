@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login no SAI</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .url-pill {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background-color: #E0F2FE;
+            border: 2px solid #BAE6FD;
+            border-radius: 999px;
+            padding: 10px 26px;
+            box-shadow: 0 8px 20px -6px rgba(0, 102, 204, 0.25);
+        }
+        .url-pill .link-icon {
+            width: 42px; height: 42px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+        .url-pill a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #003366;
+            text-decoration: underline;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 14px 70px 10px 70px;
+            gap: 50px;
+            align-items: center;
+        }
+        .print-column { flex: 0.56; }
+        .info-column { flex: 0.44; }
+
+        /* Browser frame around the real screenshot */
+        .browser-frame {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 24px 48px -12px rgba(0, 51, 102, 0.35);
+            background: white;
+        }
+        .browser-bar {
+            background-color: #F1F5F9;
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .browser-bar .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .browser-bar .url-box {
+            flex: 1;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 999px;
+            font-size: 11px;
+            color: #64748B;
+            padding: 4px 12px;
+            margin-left: 8px;
+        }
+        .browser-frame img { display: block; width: 100%; }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            background-color: #F8FAFC;
+            padding: 18px 22px;
+            border-radius: 12px;
+            border-left: 6px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .step-number {
+            width: 42px; height: 42px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 17px;
+            margin-right: 18px;
+            flex-shrink: 0;
+        }
+        .step-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 17.5px;
+            margin: 0 0 4px 0;
+        }
+        .step-item p {
+            color: #64748B;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.45;
+        }
+        .govbr-word {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-2">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Login no SAI</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Acesso com a conta única <span class="govbr-word"><span style="color:#1351B4;">g</span><span style="color:#FFCD07;">o</span><span style="color:#168821;">v</span><span style="color:#1351B4;">.br</span></span> do Governo Federal</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-right-to-bracket text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ACESSO</p>
+</div>
+</div>
+</div>
+<!-- URL -->
+<div class="flex justify-center pt-2 pb-1">
+<div class="url-pill">
+<div class="link-icon"><i class="fas fa-link"></i></div>
+<a href="https://prd-apex.antaq.gov.br/ords/r/sfc/sai" target="_blank" rel="noopener noreferrer">https://prd-apex.antaq.gov.br/ords/r/sfc/sai</a>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left: Real screenshot -->
+<div class="print-column">
+<div class="browser-frame">
+<div class="browser-bar">
+<span class="dot" style="background:#F87171;"></span>
+<span class="dot" style="background:#FBBF24;"></span>
+<span class="dot" style="background:#34D399;"></span>
+<span class="url-box"><i class="fas fa-lock mr-1 text-green-600"></i>prd-apex.antaq.gov.br/ords/r/sfc/sai</span>
+</div>
+<img src="Imagens/print_login_govbr.png" alt="Tela de login do SAI com botão Entrar com gov.br"/>
+</div>
+</div>
+<!-- Right: Steps -->
+<div class="info-column">
+<div class="step-item">
+<div class="step-number">1</div>
+<div>
+<h3>Acesse o endereço do SAI</h3>
+<p>Pelo navegador, em qualquer dispositivo.</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-number">2</div>
+<div>
+<h3>Clique em "Entrar com gov.br"</h3>
+<p>Login único do Governo Federal — a <strong>mesma conta</strong> usada nos demais serviços públicos digitais. Sem senha específica do SAI.</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-number">3</div>
+<div>
+<h3>Identificação automática pelo CPF</h3>
+<p>Após o login, o sistema reconhece o usuário pelo <strong>CPF</strong> e libera os contratos e o papel funcional vinculados pelo Administrador.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">7 / 18</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

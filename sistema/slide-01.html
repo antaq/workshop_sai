@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAI - Capa Institucional</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f3f4f6;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #002244 0%, #003366 50%, #004488 100%);
+            overflow: hidden;
+            color: white;
+        }
+        .bg-brand-primary {
+            background-color: #003366; /* Azul Escuro Institucional */
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC; /* Azul Vibrante */
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-opensans {
+            font-family: 'Open Sans', sans-serif;
+        }
+        /* Decorative Shape */
+        .shape-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.03);
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="shape-bg"></div>
+<!-- Watermark logo -->
+<img src="Imagens/Logo Horizontal_Azul_S_N.png" alt="" class="absolute top-1/2" style="left: 78%; width: 60vw; max-width: 900px; transform: translate(-50%, -50%); opacity: 0.10; z-index: 2; pointer-events: none; filter: brightness(0) invert(1);" />
+<!-- Left Accent Borders -->
+<div class="absolute left-0 top-0 h-full w-3 z-20" style="background-color: #FFD700;"></div>
+<div class="absolute left-3 top-0 h-full w-1 bg-brand-secondary z-20"></div>
+<!-- Main Content Area -->
+<div class="relative z-10 flex flex-col justify-center h-full w-full pl-24 pr-16 font-montserrat">
+<!-- Top Header / Organization -->
+<div class="absolute top-16 left-24 flex items-center gap-4">
+<div>
+<img src="Imagens/Logo Horizontal_Branca_C_N.png" alt="Logo ANTAQ" style="height: 48px; width: auto;" />
+</div>
+<div>
+<p class="text-blue-200 text-sm font-bold tracking-widest uppercase">Agência Nacional de Transportes Aquaviários</p>
+<p class="text-blue-300 text-xs font-semibold tracking-wider uppercase opacity-80">ANTAQ</p>
+</div>
+</div>
+<!-- Workshop Label -->
+<div class="mt-6 mb-1 flex items-center gap-3">
+<div class="w-10 h-0.5" style="background-color: #FFD700;"></div>
+<p class="text-blue-200 text-base font-semibold tracking-[0.3em] uppercase">Apresentação · Workshop</p>
+</div>
+<!-- Title Block -->
+<div class="mt-1">
+<div class="flex items-center gap-6">
+<img src="../icon_sai.png" alt="SAI" class="h-28">
+<p class="text-9xl font-black tracking-tighter mb-2 leading-none" style="color: #FFD700;">SAI</p>
+</div>
+<div class="w-24 h-2 mb-6 mt-2" style="background-color: #FFD700;"></div>
+<p class="text-4xl font-bold text-white mb-3 leading-tight max-w-4xl">
+                    Sistema de Acompanhamento<br/>de Investimentos
+                </p>
+<div class="mt-5 pl-6" style="border-left: 4px solid rgba(255,255,255,0.25);">
+<p class="text-2xl text-blue-100 font-light leading-relaxed">
+                        Treinamento de Cadastro de<br/>
+<strong class="font-bold" style="color: #FFD700;">Acompanhamento de Investimentos</strong>
+</p>
+</div>
+</div>
+<!-- Footer Info -->
+    <div class="absolute bottom-12 left-24 right-16 flex justify-between items-end pt-6" style="border-top: 1px solid rgba(255,255,255,0.15);">
+<div class="flex flex-col gap-1 text-xs text-blue-200">
+<span class="font-semibold uppercase tracking-wider text-blue-100">Canais oficiais ANTAQ</span>
+<div class="flex flex-wrap items-center gap-3 mt-1">
+<a href="https://www.facebook.com/ANTAQ.oficial" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 hover:text-white transition-colors">
+<i class="fa-brands fa-facebook"></i><span>Facebook</span>
+</a>
+<a href="https://www.instagram.com/antaq_oficial/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 hover:text-white transition-colors">
+<i class="fa-brands fa-instagram"></i><span>Instagram</span>
+</a>
+<a href="https://www.youtube.com/c/CanalANTAQ/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 hover:text-white transition-colors">
+<i class="fa-brands fa-youtube"></i><span>YouTube</span>
+</a>
+<a href="https://www.linkedin.com/company/antaq" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 hover:text-white transition-colors">
+<i class="fa-brands fa-linkedin"></i><span>LinkedIn</span>
+</a>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-white font-bold text-lg">Gestão Eficiente</p>
+<p class="text-xs font-semibold uppercase tracking-wide" style="color: #FFD700;">Tecnologia &amp; Inovação</p>
+</div>
+<div class="h-10 w-10 rounded-full flex items-center justify-center" style="background-color: #FFD700; color: #003366;">
+<i class="fas fa-check"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Large Decorative Icon (Watermark style) -->
+<div class="absolute bottom-0 right-0 text-white opacity-5 z-0" style="font-size: 500px; line-height: 0; transform: translate(20%, 20%);">
+<i class="fas fa-chart-line"></i>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>
