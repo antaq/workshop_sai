@@ -44,7 +44,7 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: white;
-            font-size: 24px;
+            font-size: 0.9231rem;
         }
         .role-band > div {
             padding: 16px 0;
@@ -68,7 +68,7 @@
             padding: 42px 32px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 26px;
+            font-size: 1.0rem;
             text-align: center;
             color: white;
             min-width: 250px;
@@ -80,7 +80,7 @@
         .box-aprovar { background-color: #0F766E; }
         .flow-arrow {
             color: #94A3B8;
-            font-size: 36px;
+            font-size: 1.3846rem;
             flex-shrink: 0;
         }
         .bell {
@@ -94,7 +94,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 19px;
+            font-size: 0.7308rem;
             border: 3px solid white;
             box-shadow: 0 3px 6px rgba(0,0,0,0.2);
         }
@@ -108,7 +108,7 @@
             justify-content: center;
             gap: 30px;
             padding-bottom: 8px;
-            font-size: 18px;
+            font-size: 0.6923rem;
             color: #64748B;
         }
         .legend span { display: flex; align-items: center; gap: 8px; }
@@ -120,9 +120,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 0.3846rem;
         }
-        .legend .loop-mini { color: #0284C7; font-size: 19px; }
+        .legend .loop-mini { color: #0284C7; font-size: 0.7308rem; }
     </style>
 </head>
 <body>
@@ -175,6 +175,7 @@
 <p class="text-gray-300 text-xs font-mono">9 / 18</p>
 </div>
 </div>
+<script src="zoom.js"></script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

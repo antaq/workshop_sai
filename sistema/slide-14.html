@@ -57,7 +57,7 @@
         }
         .kpi-card .kpi-label {
             font-family: 'Montserrat', sans-serif;
-            font-size: 15px;
+            font-size: 0.5769rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.6px;
@@ -65,12 +65,12 @@
         }
         .kpi-card .kpi-value {
             font-family: 'Montserrat', sans-serif;
-            font-size: 40px;
+            font-size: 1.5385rem;
             font-weight: 800;
             color: #003366;
             line-height: 1.2;
         }
-        .kpi-card .kpi-sub { font-size: 14.5px; color: #94A3B8; }
+        .kpi-card .kpi-sub { font-size: 0.5577rem; color: #94A3B8; }
 
         /* Charts row */
         .charts-row { display: flex; gap: 16px; }
@@ -84,7 +84,7 @@
         }
         .chart-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 17.5px;
+            font-size: 0.6731rem;
             font-weight: 700;
             color: #003366;
             margin-bottom: 10px;
@@ -92,7 +92,7 @@
         .bars { display: flex; align-items: flex-end; gap: 10px; height: 150px; padding: 0 6px; }
         .bar { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, #0284C7, #003366); }
         .bar-labels { display: flex; gap: 10px; padding: 4px 6px 0 6px; }
-        .bar-labels span { flex: 1; text-align: center; font-size: 13px; color: #94A3B8; }
+        .bar-labels span { flex: 1; text-align: center; font-size: 0.5rem; color: #94A3B8; }
 
         .map-box {
             background: linear-gradient(135deg, #DBEAFE 0%, #E0F7F4 55%, #DBEAFE 100%);
@@ -101,7 +101,7 @@
             position: relative;
             overflow: hidden;
         }
-        .map-box .pin { position: absolute; font-size: 15px; }
+        .map-box .pin { position: absolute; font-size: 0.5769rem; }
         .map-box .grid-line-h { position: absolute; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.7); }
         .map-box .grid-line-v { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.7); }
 
@@ -115,7 +115,7 @@
             border-left: 5px solid #0066CC;
             border-radius: 9px;
             padding: 14px 22px;
-            font-size: 18px;
+            font-size: 0.6923rem;
             color: #475569;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
@@ -173,7 +173,7 @@
 <polyline points="0,105 40,99 80,94 120,84 160,80 200,68 240,62 280,50" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6 4"/>
 <circle cx="280" cy="18" r="4" fill="#003366"/>
 </svg>
-<p class="text-gray-400" style="font-size:14px;">— Executado &nbsp;·&nbsp; ‑ ‑ Programado</p>
+<p class="text-gray-400" style="font-size: 0.5385rem;">— Executado &nbsp;·&nbsp; ‑ ‑ Programado</p>
 </div>
 <div class="chart-card">
 <p class="chart-title"><i class="fas fa-chart-column mr-1 text-brand-secondary"></i>Investimento por Região</p>
@@ -215,6 +215,7 @@
 <p class="text-gray-300 text-xs font-mono">14 / 18</p>
 </div>
 </div>
+<script src="zoom.js"></script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

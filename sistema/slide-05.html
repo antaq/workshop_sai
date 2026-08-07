@@ -65,7 +65,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 34px;
+            font-size: 1.3077rem;
             margin-bottom: 20px;
             color: white;
         }
@@ -73,14 +73,14 @@
         .profile-card h3 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 22px;
+            font-size: 0.8462rem;
             margin: 0 0 10px 0;
             color: #003366;
         }
 
         .profile-card p {
             color: #64748B;
-            font-size: 14px;
+            font-size: 0.5385rem;
             line-height: 1.5;
             margin: 0;
         }
@@ -157,6 +157,7 @@
 <p class="text-gray-300 text-xs font-mono">5 / 18</p>
 </div>
 </div>
+<script src="zoom.js"></script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

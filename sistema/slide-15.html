@@ -56,18 +56,18 @@
         .concept-box h2 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 34px;
+            font-size: 1.3077rem;
             margin: 0 0 4px 0;
         }
         .concept-box .sub {
             color: #BFDBFE;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 13.5px;
+            font-size: 0.5192rem;
             font-weight: 700;
             margin-bottom: 12px;
         }
-        .concept-box p { font-size: 18.5px; line-height: 1.55; opacity: 0.95; margin: 0; }
+        .concept-box p { font-size: 0.7115rem; line-height: 1.55; opacity: 0.95; margin: 0; }
 
         /* Formula card */
         .formula-card {
@@ -79,7 +79,7 @@
         }
         .formula-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
+            font-size: 0.5rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -94,12 +94,12 @@
             font-family: 'Montserrat', sans-serif;
             color: #003366;
         }
-        .formula .lhs { font-size: 28px; font-weight: 800; }
+        .formula .lhs { font-size: 1.0769rem; font-weight: 800; }
         .formula .frac { display: inline-flex; flex-direction: column; align-items: center; }
-        .formula .frac .num { font-size: 18px; font-weight: 700; padding: 2px 12px; }
-        .formula .frac .den { font-size: 18px; font-weight: 700; padding: 2px 12px; border-top: 2.5px solid #003366; }
-        .formula .eq { font-size: 28px; font-weight: 800; }
-        .formula-params { font-size: 14px; color: #475569; line-height: 1.55; margin-top: 10px; }
+        .formula .frac .num { font-size: 0.6923rem; font-weight: 700; padding: 2px 12px; }
+        .formula .frac .den { font-size: 0.6923rem; font-weight: 700; padding: 2px 12px; border-top: 2.5px solid #003366; }
+        .formula .eq { font-size: 1.0769rem; font-weight: 800; }
+        .formula-params { font-size: 0.5385rem; color: #475569; line-height: 1.55; margin-top: 10px; }
         .formula-params strong { color: #003366; }
 
         .extra-card {
@@ -108,7 +108,7 @@
             border-radius: 12px;
             padding: 14px 20px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            font-size: 15px;
+            font-size: 0.5769rem;
             color: #475569;
             line-height: 1.5;
         }
@@ -123,14 +123,14 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 16px 32px -10px rgba(0, 51, 102, 0.18);
-            font-size: 17.5px;
+            font-size: 0.6731rem;
         }
         .ipt-table thead th {
             background-color: #003366;
             color: white;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 0.5769rem;
             text-align: left;
             padding: 13px 18px;
         }
@@ -145,7 +145,7 @@
             display: inline-block;
             padding: 3px 12px;
             border-radius: 10px;
-            font-size: 14px;
+            font-size: 0.5385rem;
             font-weight: 700;
             white-space: nowrap;
         }
@@ -163,7 +163,7 @@
         }
         .curva-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 14.5px;
+            font-size: 0.5577rem;
             font-weight: 700;
             color: #003366;
             margin-bottom: 4px;
@@ -260,7 +260,7 @@
 <text x="500" y="30" font-size="14" fill="#94A3B8">Esperado</text>
 <text x="520" y="75" font-size="14" fill="#0284C7" font-weight="bold">Realizado</text>
 </svg>
-<p class="text-gray-400" style="font-size:12.5px;">Painel Financeiro · aba IPT: ranking de contratos, histograma de distribuição e Curva S por contrato</p>
+<p class="text-gray-400" style="font-size: 0.4808rem;">Painel Financeiro · aba IPT: ranking de contratos, histograma de distribuição e Curva S por contrato</p>
 </div>
 </div>
 </div>
@@ -270,6 +270,7 @@
 <p class="text-gray-300 text-xs font-mono">15 / 18</p>
 </div>
 </div>
+<script src="zoom.js"></script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

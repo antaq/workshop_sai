@@ -43,7 +43,7 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: white;
-            font-size: 20px;
+            font-size: 0.7692rem;
         }
         .role-band > div { padding: 14px 0; text-align: center; }
         .band-outorga { background-color: #003366; width: 16%; }
@@ -71,7 +71,7 @@
             padding: 26px 24px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 0.7692rem;
             text-align: center;
             color: white;
             min-width: 195px;
@@ -82,11 +82,11 @@
         .box-regulado { background-color: #0284C7; }
         .box-ap { background-color: #0F766E; }
         .box-fiscal { background-color: #334155; }
-        .flow-arrow { color: #94A3B8; font-size: 27px; flex-shrink: 0; }
+        .flow-arrow { color: #94A3B8; font-size: 1.0385rem; flex-shrink: 0; }
         .cond {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 17px;
+            font-size: 0.6538rem;
         }
         .cond-sim { color: #16A34A; }
         .cond-nao { color: #DC2626; }
@@ -101,7 +101,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 15px;
+            font-size: 0.5769rem;
             border: 3px solid white;
             box-shadow: 0 3px 6px rgba(0,0,0,0.2);
         }
@@ -111,14 +111,14 @@
             padding-right: 90px;
             margin: -18px 0;
             color: #94A3B8;
-            font-size: 20px;
+            font-size: 0.7692rem;
         }
         .legend {
             display: flex;
             justify-content: center;
             gap: 26px;
             padding-bottom: 8px;
-            font-size: 17px;
+            font-size: 0.6538rem;
             color: #64748B;
             flex-wrap: wrap;
         }
@@ -131,7 +131,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 9px;
+            font-size: 0.3462rem;
         }
         .chip {
             width: 14px; height: 14px;
@@ -211,6 +211,7 @@
 <p class="text-gray-300 text-xs font-mono">13 / 18</p>
 </div>
 </div>
+<script src="zoom.js"></script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

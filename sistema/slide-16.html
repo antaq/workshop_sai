@@ -61,7 +61,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 0.9231rem;
             color: white;
             margin-right: 20px;
             flex-shrink: 0;
@@ -70,12 +70,12 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: #003366;
-            font-size: 23px;
+            font-size: 0.8846rem;
             margin: 0 0 4px 0;
         }
         .trigger-item p {
             color: #64748B;
-            font-size: 18px;
+            font-size: 0.6923rem;
             margin: 0;
             line-height: 1.45;
         }
@@ -99,12 +99,12 @@
         .email-btn {
             background-color: #003366;
             color: white;
-            font-size: 16px;
+            font-size: 0.6154rem;
             font-weight: 700;
             padding: 12px 20px;
             border-radius: 6px;
         }
-        .email-body { padding: 20px 24px; font-size: 17px; color: #475569; line-height: 1.85; }
+        .email-body { padding: 20px 24px; font-size: 0.6538rem; color: #475569; line-height: 1.85; }
     </style>
 </head>
 <body>
@@ -191,6 +191,7 @@
 <p class="text-gray-300 text-xs font-mono">16 / 18</p>
 </div>
 </div>
+<script src="zoom.js"></script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

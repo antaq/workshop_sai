@@ -77,6 +77,16 @@
       min-width: 80px; text-align: center;
     }
     .nav-bar .home-btn { font-size: 12px; }
+    .nav-bar .nav-divider {
+      width: 1px; height: 22px;
+      background: rgba(255,255,255,0.25);
+      margin: 0 4px;
+    }
+    .nav-bar .zoom-label {
+      width: auto; min-width: 46px; padding: 0 6px;
+      border-radius: 10px;
+      font-size: 12px; font-weight: 600;
+    }
 
     /* Slide dots */
     .nav-dots {
@@ -133,6 +143,10 @@
     <div class="nav-dots" id="navDots"></div>
     <button onclick="next()" id="btnNext" title="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
     <span class="page-info" id="pageInfo">1 / 18</span>
+    <span class="nav-divider"></span>
+    <button onclick="zoomOut()" title="Diminuir texto (-)"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+    <button onclick="zoomReset()" class="zoom-label" id="zoomLabel" title="Restaurar tamanho do texto (0)">100%</button>
+    <button onclick="zoomIn()" title="Aumentar texto (+)"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
   </div>
 
   <button class="close-btn" onclick="closePresentation()" title="Fechar apresentação"><i class="fa-solid fa-xmark"></i></button>
@@ -190,6 +204,14 @@
       }
     }
 
+    // Text zoom: os slides aplicam o zoom (zoom.js); o visualizador só envia comandos
+    function sendZoom(action) {
+      frame.contentWindow.postMessage({ type: 'slide-zoom', action }, '*');
+    }
+    function zoomIn() { sendZoom('in'); }
+    function zoomOut() { sendZoom('out'); }
+    function zoomReset() { sendZoom('reset'); }
+
     // Keyboard navigation
     function handleKey(key) {
       if (key === 'ArrowRight' || key === ' ' || key === 'PageDown') { next(); }
@@ -197,9 +219,13 @@
       else if (key === 'Home') { goHome(); }
       else if (key === 'End') { current = total; render(); }
       else if (key === 'f' || key === 'F') { toggleFullscreen(); }
+      else if (key === '+' || key === '=') { zoomIn(); }
+      else if (key === '-' || key === '_') { zoomOut(); }
+      else if (key === '0') { zoomReset(); }
     }
     document.addEventListener('keydown', (e) => {
-      if (['ArrowRight','ArrowLeft','PageDown','PageUp','Home','End',' ','f','F'].indexOf(e.key) !== -1) {
+      if (e.ctrlKey || e.metaKey || e.altKey) return; // preserva o zoom nativo do navegador
+      if (['ArrowRight','ArrowLeft','PageDown','PageUp','Home','End',' ','f','F','+','=','-','_','0'].indexOf(e.key) !== -1) {
         e.preventDefault();
         handleKey(e.key);
       }
@@ -208,6 +234,8 @@
     window.addEventListener('message', (e) => {
       if (e.data && e.data.type === 'slide-nav' && e.data.key) {
         handleKey(e.data.key);
+      } else if (e.data && e.data.type === 'slide-zoom-changed') {
+        document.getElementById('zoomLabel').textContent = Math.round(e.data.value * 100) + '%';
       }
     });
 

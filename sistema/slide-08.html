@@ -63,7 +63,7 @@
             align-items: center;
             justify-content: center;
             color: #003366;
-            font-size: 19px;
+            font-size: 0.7308rem;
             margin-right: 15px;
             flex-shrink: 0;
         }
@@ -71,12 +71,12 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: #003366;
-            font-size: 20px;
+            font-size: 0.7692rem;
             margin: 0 0 2px 0;
         }
         .section-item p {
             color: #64748B;
-            font-size: 16.5px;
+            font-size: 0.6346rem;
             margin: 0;
             line-height: 1.45;
         }
@@ -99,12 +99,12 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: #334155;
-            font-size: 17px;
+            font-size: 0.6538rem;
         }
         .mockup-body { padding: 18px 24px; }
         .mockup-section {
             font-family: 'Montserrat', sans-serif;
-            font-size: 13.5px;
+            font-size: 0.5192rem;
             font-weight: 800;
             color: #0066CC;
             text-transform: uppercase;
@@ -113,13 +113,13 @@
             padding-bottom: 3px;
             margin: 12px 0 10px 0;
         }
-        .mockup-label { font-size: 12.5px; font-weight: 700; color: #64748B; margin-bottom: 2px; }
+        .mockup-label { font-size: 0.4808rem; font-weight: 700; color: #64748B; margin-bottom: 2px; }
         .mockup-input {
             background-color: #F8FAFC;
             border: 1px solid #CBD5E1;
             border-radius: 5px;
             padding: 7px 12px;
-            font-size: 13.5px;
+            font-size: 0.5192rem;
             color: #334155;
             display: flex;
             justify-content: space-between;
@@ -137,14 +137,14 @@
             position: absolute;
             top: 34%; left: 52%;
             color: #DC2626;
-            font-size: 20px;
+            font-size: 0.7692rem;
         }
         .map-box .grid-line-h { position: absolute; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.7); }
         .map-box .grid-line-v { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.7); }
         .mockup-btn {
             background-color: #0066CC;
             color: white;
-            font-size: 13.5px;
+            font-size: 0.5192rem;
             font-weight: 700;
             padding: 9px 16px;
             border-radius: 6px;
@@ -153,7 +153,7 @@
             display: inline-block;
             background-color: #FEF3C7;
             color: #92400E;
-            font-size: 13px;
+            font-size: 0.5rem;
             font-weight: 700;
             border-radius: 4px;
             padding: 2px 8px;
@@ -276,6 +276,7 @@
 <p class="text-gray-300 text-xs font-mono">8 / 18</p>
 </div>
 </div>
+<script src="zoom.js"></script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

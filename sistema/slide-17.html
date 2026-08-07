@@ -57,11 +57,11 @@
             border-left: 5px solid #0066CC;
             border-radius: 10px;
             padding: 20px 28px;
-            font-size: 20px;
+            font-size: 0.7692rem;
             color: #475569;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-        .highlight i { color: #0066CC; font-size: 26px; }
+        .highlight i { color: #0066CC; font-size: 1.0rem; }
 
         .log-table {
             width: 100%;
@@ -71,14 +71,14 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 16px 32px -10px rgba(0, 51, 102, 0.18);
-            font-size: 18.5px;
+            font-size: 0.7115rem;
         }
         .log-table thead th {
             background-color: #003366;
             color: white;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 17px;
+            font-size: 0.6538rem;
             text-align: left;
             padding: 18px 22px;
             white-space: nowrap;
@@ -200,6 +200,7 @@
 <p class="text-gray-300 text-xs font-mono">17 / 18</p>
 </div>
 </div>
+<script src="zoom.js"></script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>
