@@ -41,7 +41,7 @@
             flex-direction: column;
             justify-content: center;
             padding: 0 70px;
-            gap: 14px;
+            gap: 22px;
         }
 
         /* KPI row */
@@ -51,13 +51,13 @@
             background: white;
             border: 1px solid #E2E8F0;
             border-radius: 12px;
-            padding: 14px 20px;
+            padding: 22px 26px;
             box-shadow: 0 6px 14px -6px rgba(0, 51, 102, 0.18);
             border-top: 5px solid #0066CC;
         }
         .kpi-card .kpi-label {
             font-family: 'Montserrat', sans-serif;
-            font-size: 10.5px;
+            font-size: 15px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.6px;
@@ -65,12 +65,12 @@
         }
         .kpi-card .kpi-value {
             font-family: 'Montserrat', sans-serif;
-            font-size: 26px;
+            font-size: 40px;
             font-weight: 800;
             color: #003366;
             line-height: 1.2;
         }
-        .kpi-card .kpi-sub { font-size: 10.5px; color: #94A3B8; }
+        .kpi-card .kpi-sub { font-size: 14.5px; color: #94A3B8; }
 
         /* Charts row */
         .charts-row { display: flex; gap: 16px; }
@@ -84,20 +84,20 @@
         }
         .chart-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
+            font-size: 17.5px;
             font-weight: 700;
             color: #003366;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
-        .bars { display: flex; align-items: flex-end; gap: 10px; height: 110px; padding: 0 6px; }
+        .bars { display: flex; align-items: flex-end; gap: 10px; height: 150px; padding: 0 6px; }
         .bar { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, #0284C7, #003366); }
         .bar-labels { display: flex; gap: 10px; padding: 4px 6px 0 6px; }
-        .bar-labels span { flex: 1; text-align: center; font-size: 9px; color: #94A3B8; }
+        .bar-labels span { flex: 1; text-align: center; font-size: 13px; color: #94A3B8; }
 
         .map-box {
             background: linear-gradient(135deg, #DBEAFE 0%, #E0F7F4 55%, #DBEAFE 100%);
             border-radius: 8px;
-            height: 128px;
+            height: 170px;
             position: relative;
             overflow: hidden;
         }
@@ -114,8 +114,8 @@
             background-color: #F8FAFC;
             border-left: 5px solid #0066CC;
             border-radius: 9px;
-            padding: 9px 16px;
-            font-size: 12.5px;
+            padding: 14px 22px;
+            font-size: 18px;
             color: #475569;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
@@ -168,12 +168,12 @@
 <div class="charts-row">
 <div class="chart-card">
 <p class="chart-title"><i class="fas fa-chart-line mr-1 text-brand-secondary"></i>Evolução dos Investimentos</p>
-<svg viewBox="0 0 300 110" style="width:100%; height:110px;">
+<svg viewBox="0 0 300 110" style="width:100%; height:150px;">
 <polyline points="0,100 40,92 80,85 120,70 160,64 200,45 240,35 280,18" fill="none" stroke="#0284C7" stroke-width="3"/>
 <polyline points="0,105 40,99 80,94 120,84 160,80 200,68 240,62 280,50" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6 4"/>
 <circle cx="280" cy="18" r="4" fill="#003366"/>
 </svg>
-<p class="text-gray-400" style="font-size:9.5px;">— Executado &nbsp;·&nbsp; ‑ ‑ Programado</p>
+<p class="text-gray-400" style="font-size:14px;">— Executado &nbsp;·&nbsp; ‑ ‑ Programado</p>
 </div>
 <div class="chart-card">
 <p class="chart-title"><i class="fas fa-chart-column mr-1 text-brand-secondary"></i>Investimento por Região</p>
