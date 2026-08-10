@@ -153,6 +153,17 @@
         .badge-alerta { background: #FEF3C7; color: #92400E; }
         .badge-critico { background: #FEE2E2; color: #991B1B; }
 
+        .exemplo-strip {
+            background-color: #F0F9FF;
+            border: 1px solid #BAE6FD;
+            border-radius: 10px;
+            padding: 12px 18px;
+            margin-top: 14px;
+            font-size: 0.5769rem;
+            color: #475569;
+        }
+        .exemplo-strip strong { color: #003366; }
+
         .curva-card {
             background: white;
             border: 1px solid #E2E8F0;
@@ -181,7 +192,7 @@
 <div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
 <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">IPT — Índice de Performance para Término</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">O termômetro de prazo de cada contrato, calculado automaticamente no Painel</p>
+<p class="text-gray-500 font-medium text-lg mt-1">O esforço necessário para concluir no prazo — ancorado em <strong>Earned Value Management</strong> (TCPI), calculado automaticamente no banco</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
 <i class="fas fa-gauge-high text-xl"></i>
@@ -195,9 +206,9 @@
 <div class="concept-column">
 <div class="concept-box">
 <h2>O que é?</h2>
-<p class="sub">Indicador de ritmo da obra</p>
-<p>O IPT mede o <strong>esforço necessário daqui para frente</strong> para concluir a obra no prazo, comparando o quanto <em>falta executar</em> com o quanto <em>resta de prazo</em>.
-                    Quanto maior o IPT, mais o ritmo precisa acelerar — e menor a chance de entregar no prazo.</p>
+<p class="sub">Indicador de ritmo — não um cronograma</p>
+<p>O IPT mede o <strong>esforço necessário daqui para frente</strong> para concluir a obra no prazo: o trabalho que <em>falta executar</em> dividido pelo tempo que <em>resta do prazo</em>.
+                    É o <strong>TCPI</strong> do Earned Value Management (PMI · ANSI/EIA-748) aplicado ao cronograma. <strong>IPT = 1,5</strong> significa: "é preciso produzir 50% mais rápido que o planejado no tempo restante".</p>
 </div>
 <div class="formula-card">
 <p class="formula-title"><i class="fas fa-square-root-variable mr-1"></i>Como é calculado</p>
@@ -206,17 +217,17 @@
 <span class="eq">=</span>
 <span class="frac">
 <span class="num">100% − Realizado (%)</span>
-<span class="den">100% − Esperado (%)</span>
+<span class="den">100% − Tempo decorrido (%)</span>
 </span>
 </div>
 <p class="formula-params">
 <strong>Realizado (%):</strong> execução física informada no último RAPIR aprovado.<br/>
-<strong>Esperado (%):</strong> avanço previsto para hoje pela curva típica de obras portuárias (Curva S), conforme o % do prazo decorrido entre o <strong>início da contagem</strong> e a <strong>conclusão da obrigação</strong> cadastrados na Execução.<br/>
-<strong>Probabilidade (%):</strong> chance estimada de concluir no prazo mantendo o ritmo atual, derivada do IPT.
+<strong>Tempo decorrido (%):</strong> fração do prazo já consumida entre o <strong>início da contagem</strong> e a <strong>conclusão da obrigação</strong> cadastrados na Execução (limitada a 0–100%).<br/>
+<strong>Probabilidade (%):</strong> derivada do IPT por curva logística — equilíbrio em IPT 1,5 → P 50%. Define o status: <strong>Em dia ≥ 80%</strong> · <strong>Alerta 40–80%</strong> · <strong>Crítico &lt; 40%</strong>.
                     </p>
 </div>
 <div class="extra-card">
-<i class="fas fa-triangle-exclamation text-red-500 mr-1"></i> Prazo vencido com obra não concluída → classificado automaticamente como <strong>Crítico</strong>. Sem medição física → <strong>Sem medição</strong>.
+<i class="fas fa-triangle-exclamation text-red-500 mr-1"></i> <strong>Casos-limite:</strong> obra concluída → IPT 0 · P 100%. Prazo vencido sem conclusão → P 0%, <strong>Crítico</strong>. Sem medição física → <strong>Sem medição</strong>.
                 </div>
 </div>
 <!-- Right: Interpretation table + curva S -->
@@ -233,23 +244,26 @@
 </tr>
 <tr>
 <td class="ipt-faixa">1,1 – 1,3</td>
-<td><span class="badge badge-alerta">Alerta</span></td>
+<td><span class="badge badge-alerta">Atenção</span></td>
 <td>Precisa acelerar levemente. Atenção ao próximo relatório.</td>
 </tr>
 <tr>
 <td class="ipt-faixa">1,4 – 2,0</td>
-<td><span class="badge badge-alerta">Alerta</span></td>
-<td>Risco. Requer mobilização extra de equipe e recursos para recuperar.</td>
+<td><span class="badge badge-alerta">Risco</span></td>
+<td>Exige mobilização extra de equipe e recursos para recuperar.</td>
 </tr>
 <tr>
 <td class="ipt-faixa">&gt; 2,0</td>
 <td><span class="badge badge-critico">Crítico</span></td>
-<td>Recuperação inviável sem repactuar o prazo. Priorizar fiscalização.</td>
+<td>Recuperação improvável sem repactuar o prazo. Priorizar fiscalização.</td>
 </tr>
 </tbody>
 </table>
+<div class="exemplo-strip">
+<i class="fas fa-calculator mr-1 text-brand-secondary"></i> <strong>Exemplo</strong> — metade do prazo, 30% executado: IPT = (1 − 0,30) / (1 − 0,50) = <strong>1,4</strong> · Probabilidade <strong>55%</strong> → <span class="badge badge-alerta">Alerta</span>
+</div>
 <div class="curva-card">
-<p class="curva-title"><i class="fas fa-chart-line mr-1 text-brand-secondary"></i>Curva de Execução — Realizado vs Esperado (por contrato)</p>
+<p class="curva-title"><i class="fas fa-chart-line mr-1 text-brand-secondary"></i>Curva S <em>back-loaded</em> calibrada para obra portuária (k=8 · t₀=0,60) — Realizado vs Esperado</p>
 <svg viewBox="0 0 640 130" style="width:100%; height:150px;">
 <line x1="0" y1="120" x2="640" y2="120" stroke="#E2E8F0" stroke-width="1"/>
 <line x1="0" y1="80" x2="640" y2="80" stroke="#F1F5F9" stroke-width="1"/>
@@ -260,7 +274,7 @@
 <text x="500" y="30" font-size="14" fill="#94A3B8">Esperado</text>
 <text x="520" y="75" font-size="14" fill="#0284C7" font-weight="bold">Realizado</text>
 </svg>
-<p class="text-gray-400" style="font-size: 0.4808rem;">Painel Financeiro · aba IPT: ranking de contratos, histograma de distribuição e Curva S por contrato</p>
+<p class="text-gray-400" style="font-size: 0.4808rem;">A curva define a meta visível (esperado × realizado) e o SPI — <strong>não entra na fórmula do IPT</strong>. Na metade do prazo, espera ~31%, não 50%: obras portuárias começam por licenciamento, cessão SPU e financiamento. · Painel Financeiro, aba IPT</p>
 </div>
 </div>
 </div>
