@@ -142,7 +142,7 @@
     <button onclick="prev()" id="btnPrev" title="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
     <div class="nav-dots" id="navDots"></div>
     <button onclick="next()" id="btnNext" title="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
-    <span class="page-info" id="pageInfo">1 / 18</span>
+    <span class="page-info" id="pageInfo">1 / 17</span>
     <span class="nav-divider"></span>
     <button onclick="zoomOut()" title="Diminuir texto (-)"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
     <button onclick="zoomReset()" class="zoom-label" id="zoomLabel" title="Restaurar tamanho do texto (0)">100%</button>
@@ -153,12 +153,14 @@
   <button class="fs-btn" onclick="toggleFullscreen()" title="Tela Cheia (F)"><i class="fa-solid fa-expand" id="fsIcon"></i></button>
 
   <script>
-    const total = 18;
+    // Slide 15 está oculto (fora do fluxo) sem remover o arquivo do repositório.
+    const sequence = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,17,18];
+    const total = sequence.length;
     const frame = document.getElementById('slideFrame');
     let current = 1;
 
     function fileFor(n) {
-      return `slide-${String(n).padStart(2, '0')}.html`;
+      return `slide-${String(sequence[n - 1]).padStart(2, '0')}.html`;
     }
 
     function render() {
@@ -184,7 +186,7 @@
     for (let i = 0; i < total; i++) {
       const dot = document.createElement('button');
       dot.addEventListener('click', () => { current = i + 1; render(); });
-      dot.title = `Slide ${i + 1}`;
+      dot.title = `Slide ${sequence[i]}`;
       dotsContainer.appendChild(dot);
     }
 
