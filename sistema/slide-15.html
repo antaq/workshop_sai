@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Painel Financeiro</title>
+<title>IPT - Índice de Performance para Término</title>
 <link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -35,91 +35,150 @@
         .bg-brand-primary { background-color: #003366; }
         .bg-brand-secondary { background-color: #0066CC; }
 
-        .dash-wrapper {
-            flex: 1;
+        .content-wrapper {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 70px;
-            gap: 22px;
-        }
-
-        /* KPI row */
-        .kpi-row { display: flex; gap: 16px; }
-        .kpi-card {
             flex: 1;
-            background: white;
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            padding: 22px 26px;
-            box-shadow: 0 6px 14px -6px rgba(0, 51, 102, 0.18);
-            border-top: 5px solid #0066CC;
+            padding: 8px 60px 14px 60px;
+            gap: 40px;
+            align-items: center;
         }
-        .kpi-card .kpi-label {
+        .concept-column { flex: 0.40; display: flex; flex-direction: column; gap: 16px; }
+        .table-column { flex: 0.60; }
+
+        .concept-box {
+            background-color: #003366;
+            color: white;
+            padding: 26px 30px;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+        .concept-box h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.5769rem;
+            font-weight: 800;
+            font-size: 1.3077rem;
+            margin: 0 0 4px 0;
+        }
+        .concept-box .sub {
+            color: #BFDBFE;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.5192rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .concept-box p { font-size: 0.7115rem; line-height: 1.55; opacity: 0.95; margin: 0; }
+
+        /* Formula card */
+        .formula-card {
+            background-color: #F0F9FF;
+            border: 2px solid #BAE6FD;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 6px 14px -6px rgba(0, 102, 204, 0.2);
+        }
+        .formula-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.5rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
-            color: #64748B;
+            letter-spacing: 1px;
+            color: #0066CC;
+            margin-bottom: 8px;
         }
-        .kpi-card .kpi-value {
+        .formula {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5385rem;
-            font-weight: 800;
             color: #003366;
-            line-height: 1.2;
         }
-        .kpi-card .kpi-sub { font-size: 0.5577rem; color: #94A3B8; }
+        .formula .lhs { font-size: 1.0769rem; font-weight: 800; }
+        .formula .frac { display: inline-flex; flex-direction: column; align-items: center; }
+        .formula .frac .num { font-size: 0.6923rem; font-weight: 700; padding: 2px 12px; }
+        .formula .frac .den { font-size: 0.6923rem; font-weight: 700; padding: 2px 12px; border-top: 2.5px solid #003366; }
+        .formula .eq { font-size: 1.0769rem; font-weight: 800; }
+        .formula-params { font-size: 0.5385rem; color: #475569; line-height: 1.55; margin-top: 10px; }
+        .formula-params strong { color: #003366; }
 
-        /* Charts row */
-        .charts-row { display: flex; gap: 16px; }
-        .chart-card {
-            flex: 1;
+        .extra-card {
+            background-color: #F8FAFC;
+            border-left: 6px solid #0066CC;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            font-size: 0.5769rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+        .extra-card strong { color: #003366; }
+
+        /* Interpretation table */
+        .ipt-table {
+            width: 100%;
+            border-collapse: collapse;
             background: white;
             border: 1px solid #E2E8F0;
             border-radius: 12px;
-            padding: 12px 16px;
-            box-shadow: 0 6px 14px -6px rgba(0, 51, 102, 0.15);
-        }
-        .chart-title {
-            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            box-shadow: 0 16px 32px -10px rgba(0, 51, 102, 0.18);
             font-size: 0.6731rem;
+        }
+        .ipt-table thead th {
+            background-color: #003366;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.5769rem;
+            text-align: left;
+            padding: 13px 18px;
+        }
+        .ipt-table tbody td {
+            padding: 16px 20px;
+            border-top: 1px solid #F1F5F9;
+            color: #475569;
+            vertical-align: middle;
+        }
+        .ipt-faixa { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #003366; white-space: nowrap; }
+        .badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 10px;
+            font-size: 0.5385rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .badge-ok { background: #DCFCE7; color: #166534; }
+        .badge-alerta { background: #FEF3C7; color: #92400E; }
+        .badge-critico { background: #FEE2E2; color: #991B1B; }
+
+        .exemplo-strip {
+            background-color: #F0F9FF;
+            border: 1px solid #BAE6FD;
+            border-radius: 10px;
+            padding: 12px 18px;
+            margin-top: 14px;
+            font-size: 0.5769rem;
+            color: #475569;
+        }
+        .exemplo-strip strong { color: #003366; }
+
+        .curva-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px 18px;
+            box-shadow: 0 6px 14px -6px rgba(0, 51, 102, 0.15);
+            margin-top: 14px;
+        }
+        .curva-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.5577rem;
             font-weight: 700;
             color: #003366;
-            margin-bottom: 10px;
+            margin-bottom: 4px;
         }
-        .bars { display: flex; align-items: flex-end; gap: 10px; height: 150px; padding: 0 6px; }
-        .bar { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, #0284C7, #003366); }
-        .bar-labels { display: flex; gap: 10px; padding: 4px 6px 0 6px; }
-        .bar-labels span { flex: 1; text-align: center; font-size: 0.5rem; color: #94A3B8; }
-
-        .map-box {
-            background: linear-gradient(135deg, #DBEAFE 0%, #E0F7F4 55%, #DBEAFE 100%);
-            border-radius: 8px;
-            height: 170px;
-            position: relative;
-            overflow: hidden;
-        }
-        .map-box .pin { position: absolute; font-size: 0.5769rem; }
-        .map-box .grid-line-h { position: absolute; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.7); }
-        .map-box .grid-line-v { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.7); }
-
-        /* Feature chips */
-        .features-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-        .feature-chip {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            background-color: #F8FAFC;
-            border-left: 5px solid #0066CC;
-            border-radius: 9px;
-            padding: 14px 22px;
-            font-size: 0.6923rem;
-            color: #475569;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-        .feature-chip i { color: #0066CC; }
     </style>
 </head>
 <body>
@@ -132,81 +191,91 @@
 <div class="flex items-center gap-3">
 <div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Painel Financeiro</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Visão gerencial de toda a carteira de investimentos, em tempo real</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">IPT — Índice de Performance para Término</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">O esforço necessário para concluir no prazo — ancorado em <strong>Earned Value Management</strong> (TCPI), calculado automaticamente no banco</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
-<i class="fas fa-chart-pie text-xl"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PAINEL</p>
+<i class="fas fa-gauge-high text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">IPT</p>
 </div>
 </div>
 </div>
-<!-- Dashboard mock -->
-<div class="dash-wrapper">
-<div class="kpi-row">
-<div class="kpi-card">
-<p class="kpi-label">Investimento Global</p>
-<p class="kpi-value">R$ 8,4 Bi</p>
-<p class="kpi-sub">corrigido para a data selecionada</p>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left: Concept -->
+<div class="concept-column">
+<div class="concept-box">
+<h2>O que é?</h2>
+<p class="sub">Indicador de ritmo — não um cronograma</p>
+<p>O IPT mede o <strong>esforço necessário daqui para frente</strong> para concluir a obra no prazo: o trabalho que <em>falta executar</em> dividido pelo tempo que <em>resta do prazo</em>.
+                    É o <strong>TCPI</strong> do Earned Value Management (PMI · ANSI/EIA-748) aplicado ao cronograma. <strong>IPT = 1,5</strong> significa: "é preciso produzir 50% mais rápido que o planejado no tempo restante".</p>
 </div>
-<div class="kpi-card" style="border-top-color:#16A34A;">
-<p class="kpi-label">Investimento Executado</p>
-<p class="kpi-value">R$ 3,2 Bi</p>
-<p class="kpi-sub">com correção monetária automática</p>
+<div class="formula-card">
+<p class="formula-title"><i class="fas fa-square-root-variable mr-1"></i>Como é calculado</p>
+<div class="formula">
+<span class="lhs">IPT</span>
+<span class="eq">=</span>
+<span class="frac">
+<span class="num">100% − Realizado (%)</span>
+<span class="den">100% − Tempo decorrido (%)</span>
+</span>
 </div>
-<div class="kpi-card" style="border-top-color:#F59E0B;">
-<p class="kpi-label">Contratos na Carteira</p>
-<p class="kpi-value">70</p>
-<p class="kpi-sub">arrendamentos e TUPs monitorados</p>
+<p class="formula-params">
+<strong>Realizado (%):</strong> execução física informada no último RAPIR aprovado.<br/>
+<strong>Tempo decorrido (%):</strong> fração do prazo já consumida entre o <strong>início da contagem</strong> e a <strong>conclusão da obrigação</strong> cadastrados na Execução (limitada a 0–100%).<br/>
+<strong>Probabilidade (%):</strong> derivada do IPT por curva logística — equilíbrio em IPT 1,5 → P 50%. Define o status: <strong>Em dia ≥ 80%</strong> · <strong>Alerta 40–80%</strong> · <strong>Crítico &lt; 40%</strong>.
+                    </p>
 </div>
-<div class="kpi-card" style="border-top-color:#0F766E;">
-<p class="kpi-label">Execução Física Média</p>
-<p class="kpi-value">46%</p>
-<p class="kpi-sub">medições dos últimos RAPIRs</p>
+<div class="extra-card">
+<i class="fas fa-triangle-exclamation text-red-500 mr-1"></i> <strong>Casos-limite:</strong> obra concluída → IPT 0 · P 100%. Prazo vencido sem conclusão → P 0%, <strong>Crítico</strong>. Sem medição física → <strong>Sem medição</strong>.
+                </div>
 </div>
+<!-- Right: Interpretation table + curva S -->
+<div class="table-column">
+<table class="ipt-table">
+<thead>
+<tr><th>Faixa de IPT</th><th>Situação</th><th>O que significa / o que fazer</th></tr>
+</thead>
+<tbody>
+<tr>
+<td class="ipt-faixa">≤ 1,0</td>
+<td><span class="badge badge-ok">Em dia</span></td>
+<td>No ritmo planejado ou adiantado. Acompanhamento de rotina.</td>
+</tr>
+<tr>
+<td class="ipt-faixa">1,1 – 1,3</td>
+<td><span class="badge badge-alerta">Atenção</span></td>
+<td>Precisa acelerar levemente. Atenção ao próximo relatório.</td>
+</tr>
+<tr>
+<td class="ipt-faixa">1,4 – 2,0</td>
+<td><span class="badge badge-alerta">Risco</span></td>
+<td>Exige mobilização extra de equipe e recursos para recuperar.</td>
+</tr>
+<tr>
+<td class="ipt-faixa">&gt; 2,0</td>
+<td><span class="badge badge-critico">Crítico</span></td>
+<td>Recuperação improvável sem repactuar o prazo. Priorizar fiscalização.</td>
+</tr>
+</tbody>
+</table>
+<div class="exemplo-strip">
+<i class="fas fa-calculator mr-1 text-brand-secondary"></i> <strong>Exemplo</strong> — metade do prazo, 30% executado: IPT = (1 − 0,30) / (1 − 0,50) = <strong>1,4</strong> · Probabilidade <strong>55%</strong> → <span class="badge badge-alerta">Alerta</span>
 </div>
-<div class="charts-row">
-<div class="chart-card">
-<p class="chart-title"><i class="fas fa-chart-line mr-1 text-brand-secondary"></i>Evolução dos Investimentos</p>
-<svg viewBox="0 0 300 110" style="width:100%; height:150px;">
-<polyline points="0,100 40,92 80,85 120,70 160,64 200,45 240,35 280,18" fill="none" stroke="#0284C7" stroke-width="3"/>
-<polyline points="0,105 40,99 80,94 120,84 160,80 200,68 240,62 280,50" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6 4"/>
-<circle cx="280" cy="18" r="4" fill="#003366"/>
+<div class="curva-card">
+<p class="curva-title"><i class="fas fa-chart-line mr-1 text-brand-secondary"></i>Curva S <em>back-loaded</em> calibrada para obra portuária (k=8 · t₀=0,60) — Realizado vs Esperado</p>
+<svg viewBox="0 0 640 130" style="width:100%; height:150px;">
+<line x1="0" y1="120" x2="640" y2="120" stroke="#E2E8F0" stroke-width="1"/>
+<line x1="0" y1="80" x2="640" y2="80" stroke="#F1F5F9" stroke-width="1"/>
+<line x1="0" y1="40" x2="640" y2="40" stroke="#F1F5F9" stroke-width="1"/>
+<path d="M0,118 C160,112 280,85 400,55 C500,32 580,15 640,8" fill="none" stroke="#94A3B8" stroke-width="2.5" stroke-dasharray="7 5"/>
+<path d="M0,119 C150,116 260,100 380,82 C480,68 560,60 640,52" fill="none" stroke="#0284C7" stroke-width="3.5"/>
+<circle cx="640" cy="52" r="5" fill="#003366"/>
+<text x="500" y="30" font-size="14" fill="#94A3B8">Esperado</text>
+<text x="520" y="75" font-size="14" fill="#0284C7" font-weight="bold">Realizado</text>
 </svg>
-<p class="text-gray-400" style="font-size: 0.5385rem;">— Executado &nbsp;·&nbsp; ‑ ‑ Programado</p>
+<p class="text-gray-400" style="font-size: 0.4808rem;">A curva define a meta visível (esperado × realizado) e o SPI — <strong>não entra na fórmula do IPT</strong>. Na metade do prazo, espera ~31%, não 50%: obras portuárias começam por licenciamento, cessão SPU e financiamento. · Painel Financeiro, aba IPT</p>
 </div>
-<div class="chart-card">
-<p class="chart-title"><i class="fas fa-chart-column mr-1 text-brand-secondary"></i>Investimento por Região</p>
-<div class="bars">
-<div class="bar" style="height:95%;"></div>
-<div class="bar" style="height:70%;"></div>
-<div class="bar" style="height:55%;"></div>
-<div class="bar" style="height:38%;"></div>
-<div class="bar" style="height:22%;"></div>
-</div>
-<div class="bar-labels"><span>Sudeste</span><span>Sul</span><span>Nordeste</span><span>Norte</span><span>C.-Oeste</span></div>
-</div>
-<div class="chart-card">
-<p class="chart-title"><i class="fas fa-map-location-dot mr-1 text-brand-secondary"></i>Mapa dos Portos</p>
-<div class="map-box">
-<div class="grid-line-h" style="top:33%;"></div>
-<div class="grid-line-h" style="top:66%;"></div>
-<div class="grid-line-v" style="left:33%;"></div>
-<div class="grid-line-v" style="left:66%;"></div>
-<i class="fas fa-location-dot pin" style="top:18%; left:64%; color:#16A34A;"></i>
-<i class="fas fa-location-dot pin" style="top:40%; left:72%; color:#F59E0B;"></i>
-<i class="fas fa-location-dot pin" style="top:60%; left:58%; color:#DC2626;"></i>
-<i class="fas fa-location-dot pin" style="top:72%; left:44%; color:#16A34A;"></i>
-<i class="fas fa-location-dot pin" style="top:32%; left:30%; color:#16A34A;"></i>
-</div>
-</div>
-</div>
-<div class="features-row">
-<div class="feature-chip"><i class="fas fa-hand-pointer"></i>KPIs clicáveis com <strong>&nbsp;filtro cruzado</strong></div>
-<div class="feature-chip"><i class="fas fa-filter"></i>Filtros por região, perfil de carga, REIDI e contrato</div>
-<div class="feature-chip"><i class="fas fa-calendar-check"></i>Correção monetária para <strong>&nbsp;qualquer data</strong></div>
-<div class="feature-chip"><i class="fas fa-table-list"></i>Carteira de contratos detalhada</div>
-<div class="feature-chip"><i class="fas fa-ranking-star"></i>Top empresas e execução física</div>
 </div>
 </div>
 <!-- Footer -->
