@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Materiais e Acesso ao SAI</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/113/files/static/v322/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-primary { background-color: #003366; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .url-pill {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background-color: #E0F2FE;
+            border: 2px solid #BAE6FD;
+            border-radius: 999px;
+            padding: 10px 26px;
+            box-shadow: 0 8px 20px -6px rgba(0, 102, 204, 0.25);
+        }
+        .url-pill .link-icon {
+            width: 42px; height: 42px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8499rem;
+            flex-shrink: 0;
+        }
+        .url-pill a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.0rem;
+            color: #003366;
+            text-decoration: underline;
+        }
+        .section-label {
+            color: #94A3B8;
+            font-size: 0.6346rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 0 70px;
+        }
+        .material-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            background-color: #F8FAFC;
+            border-radius: 14px;
+            padding: 22px 24px;
+            border-top: 6px solid;
+            box-shadow: 0 6px 14px -6px rgba(0, 0, 0, 0.1);
+        }
+        .material-icon {
+            width: 54px; height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1538rem;
+            flex-shrink: 0;
+        }
+        .material-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 0.8846rem;
+            margin: 0 0 4px 0;
+        }
+        .material-card p {
+            color: #64748B;
+            font-size: 0.7308rem;
+            margin: 0;
+            line-height: 1.45;
+        }
+        .card-video { border-color: #DC2626; }
+        .card-video .material-icon { background-color: #DC2626; }
+        .card-apresentacao { border-color: #0066CC; }
+        .card-apresentacao .material-icon { background-color: #0066CC; }
+        .card-whatsapp { border-color: #16A34A; }
+        .card-whatsapp .material-icon { background-color: #16A34A; }
+        .card-manual { border-color: #0F766E; }
+        .card-manual .material-icon { background-color: #0F766E; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-2">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Materiais e Acesso ao SAI</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Onde encontrar o sistema e os conteúdos deste workshop</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-box-archive text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">MATERIAIS</p>
+</div>
+</div>
+</div>
+<!-- Conteúdo central: URL PRD + Materiais por e-mail, centralizados como um único bloco -->
+<div class="flex-1 flex flex-col justify-center gap-9 px-16">
+<!-- URL PRD -->
+<div class="flex flex-col items-center gap-3">
+<p class="section-label"><i class="fas fa-server"></i> Sistema em Produção (PRD)</p>
+<div class="url-pill">
+<div class="link-icon"><i class="fas fa-link"></i></div>
+<a href="https://prd-apex.antaq.gov.br/ords/r/sfc/sai" target="_blank" rel="noopener noreferrer">https://prd-apex.antaq.gov.br/ords/r/sfc/sai</a>
+</div>
+</div>
+<!-- Materiais por e-mail -->
+<div class="flex flex-col gap-4">
+<p class="section-label"><i class="fas fa-envelope-open-text"></i> Você receberá por e-mail</p>
+<div class="materials-grid">
+<div class="material-card card-video">
+<div class="material-icon"><i class="fa-brands fa-youtube"></i></div>
+<div>
+<h3>Vídeo do Workshop</h3>
+<p>Gravação completa da apresentação, disponibilizada no YouTube.</p>
+</div>
+</div>
+<div class="material-card card-apresentacao">
+<div class="material-icon"><i class="fas fa-display"></i></div>
+<div>
+<h3>Esta Apresentação</h3>
+<p>O material utilizado no workshop, para consulta e compartilhamento posterior.</p>
+</div>
+</div>
+<div class="material-card card-whatsapp">
+<div class="material-icon"><i class="fa-brands fa-whatsapp"></i></div>
+<div>
+<h3>Grupo Técnico — WhatsApp</h3>
+<p>Link de acesso ao grupo de dúvidas e suporte técnico sobre o SAI.</p>
+</div>
+</div>
+<div class="material-card card-manual">
+<div class="material-icon"><i class="fas fa-book-open"></i></div>
+<div>
+<h3>Manual do SAI</h3>
+<p>Documentação completa do sistema, disponibilizada na Wiki da ANTAQ.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SAI - Sistema de Acompanhamento de Investimentos</p>
+<p class="text-gray-300 text-xs font-mono">18 / 18</p>
+</div>
+</div>
+<script src="zoom.js"></script>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>
